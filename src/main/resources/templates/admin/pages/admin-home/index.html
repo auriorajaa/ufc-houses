@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/resources/templates/input.css">
+    <link rel="stylesheet" href="/src/main/resources/templates/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
+    <link rel="icon"
+        href="https://previews.dropbox.com/p/thumb/ACQheqz_R9R943TV11N-nGG0Ebppa5hqrv7IVzNSSey8qjdIE7CHLgwidpJ81hBqQdmEEBhajJ_T8cPwYY1TuiwnuxAc6lfwczP3LNUhIQWHDnluuQNTBj9-JSTjKdEG-a5YS1jPHzqbS9rKBYdWr50DrDLbgSfQSDzrZQMD-PaJI4Yw16hEgUHXqhuHP9VtRg_6DxAgOfDWFwYJPgXjAKypcJToln6QmD2pl4XVyky1ALXiiburTlim6OsTHwR4lPQZZARymabI9zT0eSFD6V9h8Q-Kd3MuXPfnuThLd68uQx5djBzNb4kehR37w5bOr0zEc9eoWSMy7gAZWbsoZgwG/p.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>ADMIN - UFC HOUSES</title>
+    <style>
+        ion-icon {
+            color: #d7d7d7;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div class="antialiased ">
+
+        <!-- NAVBAR SECTION STARTED -->
+        <nav class="bg-black text-white fixed top-0 left-0 right-0 z-10" style="font-family: 'Oswald', sans-serif;">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="https://previews.dropbox.com/p/thumb/ACTOHoeAZ7cSSjfqnbfr5PeGzQBqlc6PdOLSAVI9nDWva-qwhyRh9g0FAsJh4FpBKmCqbKlll5xgn8LcXdTfyvMSlrXjz0x98tzaGRLPxl-xs_OPFmpYGDgicvCBG7w8b2NinHVj9rM14op99vtPI2LtCR9VcZO2dF1zgsTtncpWaVdopM1SUb9m6mLWMb-xJ7GxykmaX99-TkkdnEOHWGsRP9nTao2e756Efz7Fjvns1F6MHCVSjT_Jq98o7WqMb_OnGsYlr-uTg4fRyrgDOCf9nTZN9GufIDGQkAoBgaYBBOphsy72FBqhH2ylHk9Hm5BbHaWhQ4V5tS2cIxmg6AnQ/p.png"
+                        class="h-8" alt="Logo" />
+                    <span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
+                </a>
+                <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <button type="button"
+                        class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-white"
+                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                        data-dropdown-placement="bottom">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-8 h-8 rounded-full object-cover"
+                            src="https://www.amust.com.au/wp-content/uploads/2020/10/P1_khabib2.jpg" alt="user photo">
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 shadow"
+                        id="user-dropdown">
+                        <div class="px-4 py-3">
+                            <span class="block text-md font-bold text-black">Khabib Nurmagomedov</span>
+                            <span class="block text-sm  text-gray-600">khabib@ufc.com</span>
+                        </div>
+                        <ul class="py-2" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-sm text-black hover:underline">My Profile</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:underline">Sign
+                                    out</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button data-collapse-toggle="navbar-user" type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        aria-controls="navbar-user" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="text-xl font-bold items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+                    id="navbar-user">
+                    <ul
+                        class="uppercase font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                        <li>
+                            <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0"
+                                aria-current="page">Admin Home</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/resources/templates/admin/pages/admin-create-article/admin-create-article.html"
+                                class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">Create
+                                Article</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- NAVBAR SECTION ENDED -->
+
+        <br>
+        <br>
+
+        <!-- MAIN CONTENT SECTION STARTED -->
+        <main class="max-w-screen-xl mx-auto p-4 pt-6">
+
+            <!-- IMAGE HOME BANNER SECTION STARTED -->
+            <div class="home-banner">
+                <div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
+                    <h1 class="text-white text-3xl font-bold uppercase">Home Banner</h1>
+                    <h6 class="text-white text-xl cursor-pointer hover:underline" data-modal-target="crud-modal"
+                        data-modal-toggle="crud-modal">Edit</h6>
+                </div>
+                <!-- Main modal -->
+                <div id="crud-modal" tabindex="-1" aria-hidden="true"
+                    class="backdrop-blur-sm bg-black bg-opacity-75 hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-md max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b">
+                                <h3 class="text-2xl font-extrabold text-black"
+                                    style="font-family: 'Oswald', sans-serif;">
+                                    Edit Image Banner
+                                </h3>
+                                <button type="button"
+                                    class="text-black bg-transparent hover:bg-black hover:text-white text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-toggle="crud-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5">
+                                <div class="grid gap-4 mb-4 grid-cols-2">
+                                    <div class="col-span-2">
+                                        <label for="banner-image-link"
+                                            class="block mb-2 text-sm font-medium text-black">Image
+                                            Link</label>
+                                        <input type="text" name="bannerImageLink" id="bannerImageLink"
+                                            class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                            placeholder="Image Link" required="">
+                                        <p class="text-gray-700 italic text-sm font-light">Recommend Size: 1200px x
+                                            800px
+                                        </p>
+                                    </div>
+                                </div>
+                                <button type="submit" id="editBannerBtn"
+                                    class="w-full text-white bg-black hover:bg-white hover:text-black border border-black font-medium text-sm px-5 py-2.5 text-center">
+                                    Edit Banner
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="border-2 border-dashed border-gray-600 h-full mb-4 mt-2" id="bannerImageContainer">
+                    <img id="bannerImage" class="h-full object-cover w-full" alt="image description">
+                </div>
+
+            </div>
+            <!-- IMAGE HOME BANNER SECTION ENDED -->
+
+
+            <br><br><br>
+
+
+            <div id="fight-event-modal" tabindex="-1" aria-hidden="true"
+                class="backdrop-blur-sm bg-black bg-opacity-75 hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b">
+                            <h3 class="text-2xl font-extrabold text-black" style="font-family: 'Oswald', sans-serif;">
+                                Edit Upcoming Fight
+                            </h3>
+                            <button type="button"
+                                class="text-black bg-transparent hover:bg-black hover:text-white text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                data-modal-toggle="fight-event-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-4 md:p-5">
+                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                <div class="col-span-2">
+                                    <label for="thumbnail" class="block mb-2 text-sm font-medium text-black">Thumbnail
+                                        Link</label>
+                                    <input type="hidden" name="thumbnail" id="uid-input"
+                                        class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                        placeholder="UID" required="">
+                                    <input type="text" name="thumbnail" id="thumbnail-link-input"
+                                        class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                        placeholder="Image Link" required="">
+                                    <p class="text-gray-700 italic text-sm font-light mb-2">Recommend Size: 1280px x
+                                        720px
+                                    </p>
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Fighter Name</label>
+                                    <div class="flex flex-row gap-2 mb-3">
+                                        <input type="text" id="fighter-1-input"
+                                            class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                            placeholder="Red Corner" required="">
+                                        <input type="text" id="fighter-2-input"
+                                            class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                            placeholder="Blue Corner" required="">
+                                    </div>
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Fight Category</label>
+                                    <select id="fight-category-input"
+                                        class="bg-gray-50 border mb-3 border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5">
+                                        <option value="Main Event">Main Event</option>
+                                        <option value="Fight Night">Fight Night</option>
+                                        <option value="Co-Main Event">Co-Main Event</option>
+                                        <option value="Preliminary Card">Preliminary Card</option>
+                                        <option value="Undercard">Undercard</option>
+                                    </select>
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Link Live Streaming</label>
+                                    <input type="text" id="link-live-streaming-input"
+                                        class="bg-gray-50 border mb-3 border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                        placeholder="https://www.ufc.com" required="">
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Event Date and
+                                        Time</label>
+                                    <input type="datetime-local" id="date-event-input"
+                                        class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5">
+                                </div>
+                            </div>
+                            <button type="submit" id="edit-upcoming-fight-btn"
+                                class="w-full text-white bg-black hover:underline border border-black font-medium text-sm px-5 py-2.5 text-center">
+                                Edit Upcoming Fight
+                            </button>
+                            <button type="submit" id="delete-upcoming-fight-btn"
+                                class="w-full text-white bg-red-600 hover:underline font-medium text-sm px-5 py-2.5 text-center mt-2">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div id="add-fight-event-modal" tabindex="-1" aria-hidden="true"
+                class="backdrop-blur-sm bg-black bg-opacity-75 hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b">
+                            <h3 class="text-2xl font-extrabold text-black" style="font-family: 'Oswald', sans-serif;">
+                                Add Upcoming Fight
+                            </h3>
+                            <button type="button"
+                                class="text-black bg-transparent hover:bg-black hover:text-white text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                data-modal-toggle="add-fight-event-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-4 md:p-5">
+                            <div class="grid gap-4 mb-4 grid-cols-2">
+                                <div class="col-span-2">
+                                    <label for="thumbnail" class="block mb-2 text-sm font-medium text-black">Thumbnail
+                                        Link</label>
+                                    <input type="text" name="thumbnail" id="add-thumbnail-link-input"
+                                        class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                        placeholder="Image Link" required="">
+                                    <p class="text-gray-700 italic text-sm font-light mb-2">Recommend Size: 1280px x
+                                        720px
+                                    </p>
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Fighter Name</label>
+                                    <div class="flex flex-row gap-2 mb-3">
+                                        <input type="text" id="add-fighter-1-input"
+                                            class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                            placeholder="Red Corner" required="">
+                                        <input type="text" id="add-fighter-2-input"
+                                            class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                            placeholder="Blue Corner" required="">
+                                    </div>
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Fight Category</label>
+                                    <select id="add-fight-category-input"
+                                        class="bg-gray-50 border mb-3 border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5">
+                                        <option value="Main Event">Main Event</option>
+                                        <option value="Fight Night">Fight Night</option>
+                                        <option value="Co-Main Event">Co-Main Event</option>
+                                        <option value="Preliminary Card">Preliminary Card</option>
+                                        <option value="Undercard">Undercard</option>
+                                    </select>
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Link Live Streaming</label>
+                                    <input type="text" id="add-link-live-streaming-input"
+                                        class="bg-gray-50 border mb-3 border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                        placeholder="https://www.ufc.com" required="">
+
+                                    <label class="block mb-2 text-sm font-medium text-black">Event Date and
+                                        Time</label>
+                                    <input type="datetime-local" id="add-date-event-input"
+                                        class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5">
+                                </div>
+                            </div>
+                            <button type="submit" id="add-upcoming-fight-btn"
+                                class="w-full text-white bg-black hover:underline border border-black font-medium text-sm px-5 py-2.5 text-center">
+                                Add Upcoming Fight
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- UPCOMING FIGHT SECTION STARTED -->
+            <div class="upcoming-fight py-4">
+                <div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
+                    <h1 class="text-white text-3xl font-bold uppercase">Upcoming Fight</h1>
+                    <h6 class="text-white text-xl cursor-pointer hover:underline" id="addEventButton"
+                        data-modal-toggle="add-fight-event-modal" data-modal-target="add-fight-event-modal">Add Event
+                    </h6>
+                </div>
+                <div id="upcoming-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                </div>
+            </div>
+            <!-- UPCOMING FIGHT SECTION ENDED -->
+
+            <!-- YOUR LATEST ARTICLE SECTION STARTED -->
+            <h1 class="text-white text-3xl font-bold uppercase" style="font-family: 'Oswald', sans-serif;">Your Latest
+                Article</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="display-latest-article">
+
+            </div>
+            <!-- YOUR LATEST ARTICLE SECTION ENDED -->
+        </main>
+        <!-- MAIN CONTENT SECTION ENDED -->
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCEaC_yprIy0mR8OTPm8r3dJaRueH1-leY",
+            authDomain: "ufc-houses.firebaseapp.com",
+            databaseURL: "https://ufc-houses-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "ufc-houses",
+            storageBucket: "ufc-houses.appspot.com",
+            messagingSenderId: "485649152312",
+            appId: "1:485649152312:web:61a12f0a0deb32c05c29cd",
+            measurementId: "G-QVPENKWRCY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, set, get, update, remove, ref, push, child, onValue, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        const db = getDatabase();
+
+        const bannerImageLinkInput = document.querySelector("#bannerImageLink");
+        const editBannerBtn = document.querySelector("#editBannerBtn");
+
+
+        const thumbnailLink = document.querySelector("#thumbnail-link");
+        const fighter1 = document.querySelector("#fighter-1");
+        const fighter2 = document.querySelector("#fighter-2");
+        const fightCategory = document.querySelector("#fight-category");
+        const liveLink = document.querySelector("#link-live-streaming");
+        const eventDate = document.querySelector("#date-event");
+
+        const upcomingFightContainer = document.getElementById("upcoming-fight");
+
+        const thumbnailLinkInput = document.querySelector("#thumbnail-link-input");
+        const fighter1Input = document.querySelector("#fighter-1-input");
+        const fighter2Input = document.querySelector("#fighter-2-input");
+        const fightCategoryInput = document.querySelector("#fight-category-input");
+        const liveLinkInput = document.querySelector("#link-live-streaming-input");
+        const eventDateInput = document.querySelector("#date-event-input");
+        const uidInput = document.querySelector("#uid-input");
+        const editUpcomingFightBtn = document.querySelector("#edit-upcoming-fight-btn");
+        const deleteUpcomingFightBtn = document.querySelector("#delete-upcoming-fight-btn");
+
+        const addThumbnailLinkInput = document.querySelector("#add-thumbnail-link-input");
+        const addFighter1Input = document.querySelector("#add-fighter-1-input");
+        const addFighter2Input = document.querySelector("#add-fighter-2-input");
+        const addFightCategoryInput = document.querySelector("#add-fight-category-input");
+        const addLiveLinkInput = document.querySelector("#add-link-live-streaming-input");
+        const addEventDateInput = document.querySelector("#add-date-event-input");
+        const addUpcomingFightBtn = document.querySelector("#add-upcoming-fight-btn");
+
+        const yourLatestArticleContainer = document.getElementById("display-latest-article");
+
+        // Function to get the current banner image link from the database
+        function getCurrentBannerLink() {
+            const bannerRef = ref(db, 'BannerImageLink');
+
+            get(bannerRef).then((snapshot) => {
+
+
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    const bannerKey = Object.keys(data)[0];  // Assuming there's only one banner link
+                    const currentLink = data[bannerKey].Link;  // Get the current banner link
+
+                    bannerImageLinkInput.value = data[bannerKey].Link;  // Set the input value to the current banner link
+                    bannerImageLinkInput.dataset.key = bannerKey;  // Store the key for later update
+
+                    document.getElementById('bannerImage').src = currentLink;
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error("Error fetching data: ", error);
+            });
+        }
+
+        // // Function to update the banner image link in the database
+        function updateBannerLink() {
+            const bannerKey = bannerImageLinkInput.dataset.key;
+            const newLink = bannerImageLinkInput.value;
+
+            if (bannerKey) {
+                const updates = {};
+                updates['/BannerImageLink/' + bannerKey + '/Link'] = newLink;
+
+                update(ref(db), updates)
+                    .then(() => {
+                        alert("Banner link updated successfully");
+                        location.reload();
+                    })
+                    .catch((error) => {
+                        console.error("Error updating banner link: ", error);
+                    });
+            } else {
+                console.error("Banner key not found");
+            }
+        }
+
+        // // Fetch the current banner link when the page loads
+        document.addEventListener("DOMContentLoaded", getCurrentBannerLink);
+
+        // // Update the banner link when the button is clicked
+        editBannerBtn.addEventListener("click", updateBannerLink);
+
+        // Referensi ke database path "UpcomingFight"
+        const fightsRef = ref(db, 'UpcomingFight');
+
+        // Mendapatkan data dari Firebase
+        onValue(fightsRef, (snapshot) => {
+            const data = snapshot.val();
+
+            // Menghapus konten yang ada (untuk mencegah duplikasi)
+            upcomingFightContainer.innerHTML = "";
+
+            // Iterasi melalui setiap entri dalam data
+            for (const uid in data) {
+                const fight = data[uid];
+
+                // Membuat elemen HTML untuk setiap item
+                const fightElement = document.createElement('div');
+                fightElement.className = "flex flex-col overflow-hidden shadow-lg my-4";
+
+                // Template untuk elemen HTML
+                fightElement.innerHTML = `
+            <img class="object-cover w-full h-64" id="thumbnail-link" src="${fight.Thumbnail}" alt="Fight Thumbnail">
+            <div class="py-4" style="font-family: 'Oswald', sans-serif;">
+                <h6 style="display: none;" class="text-white">ID: ${uid}</h6>
+                <div class="flex flex-row gap-2">
+                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-1">${fight.Fighter1.toLowerCase()}</h2>
+                    <h2 class="text-3xl font-bold text-white">Vs</h2>
+                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-2">${fight.Fighter2.toLowerCase()} <ion-icon name="create-outline" class="cursor-pointer" data-uid="${uid}" onclick="openEditModal('${uid}')"></ion-icon></h2>
+                </div>
+                <div class="flex items-center text-gray-100 mt-2">
+                    <p id="fight-category">${fight.FightCategory}</p>
+                    <span class="mx-2">|</span>
+                    <a href="${fight.LiveLink}" class="hover:text-yellow-400" id="link-live-streaming">Link Live Streaming</a>
+                </div>
+                <p class="text-gray-300 mt-2" id="date-event">${new Date(fight.EventDate).toLocaleString()}</p>
+            </div>
+        `;
+
+                // Menambahkan elemen HTML ke dalam upcomingFightContainer
+                upcomingFightContainer.appendChild(fightElement);
+            }
+        }, (errorObject) => {
+            console.error("The read failed: " + errorObject.code);
+        });
+
+        window.openEditModal = (uid) => {
+            const fightRef = ref(db, `UpcomingFight/${uid}`);
+
+            get(fightRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const fightData = snapshot.val();
+
+                    uidInput.value = uid;
+                    thumbnailLinkInput.value = fightData.Thumbnail;
+                    fighter1Input.value = fightData.Fighter1;
+                    fighter2Input.value = fightData.Fighter2;
+                    fightCategoryInput.value = fightData.FightCategory;
+                    liveLinkInput.value = fightData.LiveLink;
+                    eventDateInput.value = new Date(fightData.EventDate).toISOString().slice(0, 16);
+
+                    // Menampilkan modal
+                    const modal = new Modal(document.getElementById('fight-event-modal'));
+                    modal.show();
+                } else {
+                    console.error("Data not found for UID:", uid);
+                }
+            }).catch((error) => {
+                console.error("Error fetching data from Firebase:", error);
+            });
+        };
+
+        function addUpcomingFightData() {
+            set(push(ref(db, "UpcomingFight")), {
+                Thumbnail: addThumbnailLinkInput.value,
+                Fighter1: addFighter1Input.value,
+                Fighter2: addFighter2Input.value,
+                FightCategory: addFightCategoryInput.value,
+                LiveLink: addLiveLinkInput.value,
+                EventDate: addEventDateInput.value,
+                CreatedAt: new Date().toISOString()
+            })
+                .then(() => {
+                    alert("Data successfully entered");
+                })
+                .catch((error) => {
+                    alert("Error writing data to Firebase");
+                })
+        }
+
+        addUpcomingFightBtn.addEventListener("click", addUpcomingFightData);
+
+        // Dapatkan tombol edit
+        const editButton = document.getElementById('edit-upcoming-fight-btn');
+
+        function updateUpcomingFightData() {
+            update(ref(db, "UpcomingFight/" + uidInput.value), {
+                Thumbnail: thumbnailLinkInput.value,
+                Fighter1: fighter1Input.value,
+                Fighter2: fighter2Input.value,
+                FightCategory: fightCategoryInput.value,
+                LiveLink: liveLinkInput.value,
+                EventDate: eventDateInput.value
+            })
+                .then(() => {
+                    alert("Data successfully entered");
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        }
+
+        editUpcomingFightBtn.addEventListener("click", updateUpcomingFightData);
+
+        function removeUpcomingFightData() {
+            remove(ref(db, "UpcomingFight/" + uidInput.value))
+                .then(() => {
+                    alert("Removed Data successfully");
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        }
+
+        deleteUpcomingFightBtn.addEventListener("click", removeUpcomingFightData);
+
+        // Dapatkan tombol x modal
+        const closeModalButton = document.querySelector('[data-modal-toggle="fight-event-modal"]');
+
+        // Tambahkan event listener untuk menutup modal saat tombol x ditekan
+        closeModalButton.addEventListener('click', () => {
+            const modal = new Modal(document.getElementById('fight-event-modal'));
+            modal.hide();
+        });
+
+        // Mendapatkan referensi table yang diinginkan (Table article)
+        const articlesRef = ref(db, "Article");
+
+        // Mendapatkan data article untuk ditampilkan di section your latest article
+        onValue(articlesRef, (snapshot) => {
+            const data = snapshot.val();
+
+            // Menghapus konten yang ada (untuk mencegah duplikasi)
+            yourLatestArticleContainer.innerHTML = "";
+
+            // Iterasi melalui setiap entri dalam data
+            for (const uid in data) {
+                const articleData = data[uid];
+
+                const articleElement = document.createElement("div");
+                articleElement.className = "flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105";
+
+                // Template untuk elemen HTML
+                articleElement.innerHTML = `<a href="/src/main/resources/templates/pages/article/index.html"><img
+                            class="object-cover w-full h-56"
+                            src="${articleData.ArticleThumbnail}"
+                            alt=""></a>
+                    <div class="py-4">
+                        <a href="/src/main/resources/templates/pages/article/index.html">
+                            <h2 class="text-xl font-bold text-white mb-2">${articleData.ArticleTitle}
+                            </h2>
+                            <h6 style="display: none;" class="text-white">UID: ${uid}</h6>
+                        </a>
+                        <span style="font-family: 'Oswald', sans-serif;"
+                            class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${articleData.ArticleCategory}</span>
+                        <p class="text-gray-300 mt-2">${new Date(articleData.CreatedAt).toLocaleString()}</p>
+                        <a href="">
+                            <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
+                        </a>
+                    </div>
+                    `;
+
+                // Menambahkan elemen HTML ke dalam yourLatestArticleContainer
+                yourLatestArticleContainer.appendChild(articleElement);
+            }
+        }, (errorObject) => {
+            console.log("The read failed: " + errorObject.code);
+        })
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+</body>
+
+</html>

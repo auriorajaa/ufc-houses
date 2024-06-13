@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/resources/templates/input.css">
+    <link rel="stylesheet" href="/src/main/resources/templates/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
+    <link rel="icon"
+        href="https://previews.dropbox.com/p/thumb/ACQheqz_R9R943TV11N-nGG0Ebppa5hqrv7IVzNSSey8qjdIE7CHLgwidpJ81hBqQdmEEBhajJ_T8cPwYY1TuiwnuxAc6lfwczP3LNUhIQWHDnluuQNTBj9-JSTjKdEG-a5YS1jPHzqbS9rKBYdWr50DrDLbgSfQSDzrZQMD-PaJI4Yw16hEgUHXqhuHP9VtRg_6DxAgOfDWFwYJPgXjAKypcJToln6QmD2pl4XVyky1ALXiiburTlim6OsTHwR4lPQZZARymabI9zT0eSFD6V9h8Q-Kd3MuXPfnuThLd68uQx5djBzNb4kehR37w5bOr0zEc9eoWSMy7gAZWbsoZgwG/p.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <title>ADMIN CREATE ARTICLE - UFC HOUSES</title>
+</head>
+
+<body>
+    <!-- NAVBAR SECTION STARTED -->
+    <nav class="bg-black text-white fixed top-0 left-0 right-0 z-10" style="font-family: 'Oswald', sans-serif;">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://previews.dropbox.com/p/thumb/ACTOHoeAZ7cSSjfqnbfr5PeGzQBqlc6PdOLSAVI9nDWva-qwhyRh9g0FAsJh4FpBKmCqbKlll5xgn8LcXdTfyvMSlrXjz0x98tzaGRLPxl-xs_OPFmpYGDgicvCBG7w8b2NinHVj9rM14op99vtPI2LtCR9VcZO2dF1zgsTtncpWaVdopM1SUb9m6mLWMb-xJ7GxykmaX99-TkkdnEOHWGsRP9nTao2e756Efz7Fjvns1F6MHCVSjT_Jq98o7WqMb_OnGsYlr-uTg4fRyrgDOCf9nTZN9GufIDGQkAoBgaYBBOphsy72FBqhH2ylHk9Hm5BbHaWhQ4V5tS2cIxmg6AnQ/p.png"
+                    class="h-8" alt="Logo" />
+                <span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
+            </a>
+            <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button"
+                    class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-white"
+                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full object-cover"
+                        src="https://www.amust.com.au/wp-content/uploads/2020/10/P1_khabib2.jpg" alt="user photo">
+                </button>
+                <!-- Dropdown menu -->
+                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 shadow"
+                    id="user-dropdown">
+                    <div class="px-4 py-3">
+                        <span class="block text-md font-bold text-black">Khabib Nurmagomedov</span>
+                        <span class="block text-sm  text-gray-600">khabib@ufc.com</span>
+                    </div>
+                    <ul class="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-black hover:underline">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:underline">Sign
+                                out</a>
+                        </li>
+                    </ul>
+                </div>
+                <button data-collapse-toggle="navbar-user" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                    aria-controls="navbar-user" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="text-xl font-bold items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+                id="navbar-user">
+                <ul
+                    class="uppercase font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                    <li>
+                        <a href="/templates/admin/pages/admin-home/index.html"
+                            class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0"
+                            aria-current="page">Admin Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class=" block py-2 px-3 text-white rounded md:bg-transparent md:p-0">Create
+                            Article</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR SECTION ENDED -->
+
+    <br>
+    <br>
+
+    <!-- MAIN CONTENT SECTION STARTED -->
+    <main class="max-w-screen-xl mt-4 mx-auto p-4 pt-6">
+
+        <div class="flex flex-col">
+            <input type="text" id="article-title"
+                class="border-none text-black text-5xl focus:ring-white focus:border-none block w-full p-2.5 placeholder-gray-400 placeholder-opacity-70"
+                placeholder="Title" required="" style="font-family: 'Oswald', sans-serif;">
+
+            <div class="flex flex-row max-w-md gap-4">
+                <select id="category-article" style="font-family: 'Oswald', sans-serif;"
+                    class="block py-2.5 p-2.5 w-full text-md text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                    required>
+                    <option>Select Category</option>
+                    <option value="Featherweight">Featherweight</option>
+                    <option value="Lightweight">Lightweight</option>
+                    <option value="Welterweight">Welterweight</option>
+                    <option value="Heavyweight">Heavyweight</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" id="thumbnail-article-link" style="font-family: 'Oswald', sans-serif;"
+                    class="block py-2.5 p-2.5 w-full text-md text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                    placeholder="Thumbnail Image Link" required="">
+            </div>
+
+            <br>
+        </div>
+        <textarea id="content-article" cols="30" rows="10"></textarea>
+        <button type="submit" id="submit-article-btn"
+            class=" text-white bg-black hover:underline border border-black font-medium text-sm px-5 py-2.5 text-center">
+            Upload Article
+        </button>
+    </main>
+    <!-- MAIN CONTENT SECTION ENDED -->
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCEaC_yprIy0mR8OTPm8r3dJaRueH1-leY",
+            authDomain: "ufc-houses.firebaseapp.com",
+            databaseURL: "https://ufc-houses-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "ufc-houses",
+            storageBucket: "ufc-houses.appspot.com",
+            messagingSenderId: "485649152312",
+            appId: "1:485649152312:web:61a12f0a0deb32c05c29cd",
+            measurementId: "G-QVPENKWRCY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, set, get, update, remove, ref, push, child, onValue, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        const db = getDatabase();
+
+        const articleTitleInput = document.querySelector("#article-title");
+        const categoryArticleInput = document.querySelector("#category-article");
+        const thumbnailArticleLinkInput = document.querySelector("#thumbnail-article-link");
+        const articleTextAreaInput = document.querySelector("#content-article");
+        const buttonSubmitArticle = document.querySelector("#submit-article-btn");
+
+        function insertArticle() {
+            set(push(ref(db, "Article")), {
+                ArticleTitle: articleTitleInput.value,
+                ArticleCategory: categoryArticleInput.value,
+                ArticleThumbnail: thumbnailArticleLinkInput.value,
+                ArticleContent: articleTextAreaInput.value,
+                CreatedAt: new Date().toISOString()
+            })
+                .then(() => {
+                    alert("Article sucessfully created");
+                })
+                .catch((error) => {
+                    alert("Something goes wwrong!");
+                })
+        }
+
+        buttonSubmitArticle.addEventListener("click", insertArticle);
+    </script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+
+</html>

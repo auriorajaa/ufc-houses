@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/resources/templates/input.css">
+    <link rel="stylesheet" href="/src/main/resources/templates/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
+    <link rel="icon"
+        href="https://previews.dropbox.com/p/thumb/ACQheqz_R9R943TV11N-nGG0Ebppa5hqrv7IVzNSSey8qjdIE7CHLgwidpJ81hBqQdmEEBhajJ_T8cPwYY1TuiwnuxAc6lfwczP3LNUhIQWHDnluuQNTBj9-JSTjKdEG-a5YS1jPHzqbS9rKBYdWr50DrDLbgSfQSDzrZQMD-PaJI4Yw16hEgUHXqhuHP9VtRg_6DxAgOfDWFwYJPgXjAKypcJToln6QmD2pl4XVyky1ALXiiburTlim6OsTHwR4lPQZZARymabI9zT0eSFD6V9h8Q-Kd3MuXPfnuThLd68uQx5djBzNb4kehR37w5bOr0zEc9eoWSMy7gAZWbsoZgwG/p.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>ADMIN - UFC HOUSES</title>
+</head>
+
+<body class="bg-black">
+    <!-- FORM LOGIN SECTION STARTED -->
+
+    <section class="">
+        <div class="flex flex-col items-center justify-center px-6 py-8 md:h-screen mx-auto lg:py-0">
+            <a href="#" class="flex items-center mb-6 text-4xl font-extrabold text-white"
+                style="font-family: 'Oswald', sans-serif;">
+                <img class="w-16 h-16 mr-2"
+                    src="https://previews.dropbox.com/p/thumb/ACTOHoeAZ7cSSjfqnbfr5PeGzQBqlc6PdOLSAVI9nDWva-qwhyRh9g0FAsJh4FpBKmCqbKlll5xgn8LcXdTfyvMSlrXjz0x98tzaGRLPxl-xs_OPFmpYGDgicvCBG7w8b2NinHVj9rM14op99vtPI2LtCR9VcZO2dF1zgsTtncpWaVdopM1SUb9m6mLWMb-xJ7GxykmaX99-TkkdnEOHWGsRP9nTao2e756Efz7Fjvns1F6MHCVSjT_Jq98o7WqMb_OnGsYlr-uTg4fRyrgDOCf9nTZN9GufIDGQkAoBgaYBBOphsy72FBqhH2ylHk9Hm5BbHaWhQ4V5tS2cIxmg6AnQ/p.png"
+                    alt="logo">
+                UFC HOUSES ADMIN
+            </a>
+            <div class="w-full bg-white shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-3xl font-bold leading-tight tracking-tight text-black"
+                        style="font-family: 'Oswald', sans-serif;">
+                        Sign in to your account
+                    </h1>
+                    <form class="space-y-4 md:space-y-6" action="#">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-black">Your
+                                email</label>
+                            <input type="email" name="email" id="admin-email"
+                                class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                placeholder="name@company.com" required="">
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
+                            <input type="password" name="password" id="admin-password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
+                                required="">
+                        </div>
+                        <button type="submit" id="login-admin-btn"
+                            class="w-full text-white bg-black hover:bg-white hover:text-black border border-black font-medium text-sm px-5 py-2.5 text-center">Sign
+                            in</button>
+                        <p class="text-sm font-light text-gray-700 ">
+                            Don’t have an account yet? <a href="/src/main/resources/templates/admin/sign-up.html"
+                                class="font-medium text-black hover:underline">Sign
+                                up</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM LOGIN SECTION ENDED -->
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import {
+            getAuth, signInWithEmailAndPassword, onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCEaC_yprIy0mR8OTPm8r3dJaRueH1-leY",
+            authDomain: "ufc-houses.firebaseapp.com",
+            databaseURL: "https://ufc-houses-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "ufc-houses",
+            storageBucket: "ufc-houses.appspot.com",
+            messagingSenderId: "485649152312",
+            appId: "1:485649152312:web:61a12f0a0deb32c05c29cd",
+            measurementId: "G-QVPENKWRCY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const adminEmail = document.querySelector("#admin-email");
+        const adminPassword = document.querySelector("#admin-password");
+        const adminLoginBtn = document.querySelector("#login-admin-btn");
+
+        const userSignIn = async () => {
+            const signInEmail = adminEmail.value;
+            const signInPassword = adminPassword.value;
+
+            signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    alert("Login Successfully!");
+                    // Redirect to admin-home/index.html
+                    window.location.href = "/src/main/resources/templates/admin/pages/admin-home/index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(errorCode, errorMessage);
+                    alert("Failed to login: " + errorMessage);
+                });
+        }
+
+        adminLoginBtn.addEventListener("click", userSignIn);
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/src/main/resources/templates/input.css">
+	<link rel="stylesheet" href="/src/main/resources/templates/output.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
+	<link rel="icon"
+		href="https://previews.dropbox.com/p/thumb/ACTlye3RkbGcMjWQjGlVxHe7h3blA6sO5JT_RwQlEnjXg7mfHMsJ4ZF-FRlTDQFE_dzND9nFycPIhrs73TXxFvYh8Cuh_mD4yuLSYX8xDceHNpojBvDF0zAPONHv41vWim1xZlsv8naU5tKqsz0B3WNCIVctaLA8q5ObPMj_KQWiJXRKkq0Iz7ScfnWCftRD4d93leWcb8KsNL0KEr43iswehQpBCLKR8rWPSf-n2ozBkKDx6pRYeJRBbhgUgNiCRuGeM3Hv-mTeaDS30vKkGQDSDQ1ZUlxrHA97YQk_av3JPA86jPb0LC_B4NBwInA7T_KDUvAXsGVH26OJ-zWWblQf/p.png">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+	<title>UFC HOUSES</title>
+</head>
+
+<body class="bg-black" style="font-family: 'Oswald', sans-serif;">
+
+	<!-- NAVBAR SECTION STARTED -->
+	<nav class="bg-black text-white fixed top-0 left-0 right-0 z-10">
+		<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+			<a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+				<img src="https://previews.dropbox.com/p/thumb/ACS4znQfFL3QG_OLpUpUDudDqodc7ouUuRqJEGo9YFPjv_AAJRDNQe9qU95n7Fa5jCRdt05NgtXjDF6gmqyFfStU1pr-7waIGPrmxUWrj_BOSEYXMyombUxbPrqdUiVmfSlBepRsX7_D2S5-u2cAET3s7lgrLd7BrCXpMAh7f0oss-K0VyGo8cbwKTqhq-nJdJxznjZ-WX4TUI4enfCWfg3gG4tkANSyKxEAkp6zaQp2OfrQTItskEyCB7gG16AMNoXKcTR7WoFNs--3qeszNxXIuQz3f_7Lp6fFEDmNAosw9ACxvdhzTPBK8BEcBRvHZ1Cx40FEZV8QW85cbuo8fGW-/p.png"
+					class="h-8" alt="Logo" />
+				<span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
+			</a>
+		</div>
+	</nav>
+	<!-- NAVBAR SECTION ENDED -->
+	<br>
+	<br>
+	<!-- HERO SECTION STARTED -->
+	<div class="max-w-screen-xl mx-auto p-4">
+		<img id="bannerImage" class="h-full object-cover w-full" src="" alt="image description">
+	</div>
+	<!-- HERO SECTION ENDED -->
+
+	<!-- UPCOMING FIGHTS SECTION STARTED -->
+	<div class="max-w-screen-xl mx-auto p-4">
+		<!-- UPCOMING FIGHT SECTION STARTED -->
+		<div class="upcoming-fight py-4">
+			<div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
+				<h1 class="text-white text-3xl font-bold uppercase">Upcoming Fight</h1>
+			</div>
+			<div id="upcoming-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			</div>
+		</div>
+		<!-- UPCOMING FIGHT SECTION ENDED -->
+	</div>
+	<!-- UPCOMING FIGHTS SECTION ENDED -->
+
+	<!-- SEE WHAT'S HOT SECTION STARTED -->
+	<div class="max-w-screen-xl mx-auto p-4">
+		<h1 class="text-white font-bold text-3xl my-3">SEE WHAT'S <span class="text-red-600">HOT</span>
+		</h1>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="display-latest-article">
+
+		</div>
+
+		<div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
+			<a href="/src/main/resources/templates/pages/search-article/search-article.html">
+				<h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">SEE
+					ALL</h1>
+			</a>
+		</div>
+
+	</div>
+	<!-- SEE WHAT'S HOT SECTION ENDED -->
+
+	<!-- FOOTER SECTION STARTED -->
+
+	<footer class="bg-black mt-7">
+		<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+			<div class="md:flex md:justify-between">
+				<div class="mb-6 md:mb-0">
+					<a href="index.html" class="flex items-center">
+						<img src="https://previews.dropbox.com/p/thumb/ACS4znQfFL3QG_OLpUpUDudDqodc7ouUuRqJEGo9YFPjv_AAJRDNQe9qU95n7Fa5jCRdt05NgtXjDF6gmqyFfStU1pr-7waIGPrmxUWrj_BOSEYXMyombUxbPrqdUiVmfSlBepRsX7_D2S5-u2cAET3s7lgrLd7BrCXpMAh7f0oss-K0VyGo8cbwKTqhq-nJdJxznjZ-WX4TUI4enfCWfg3gG4tkANSyKxEAkp6zaQp2OfrQTItskEyCB7gG16AMNoXKcTR7WoFNs--3qeszNxXIuQz3f_7Lp6fFEDmNAosw9ACxvdhzTPBK8BEcBRvHZ1Cx40FEZV8QW85cbuo8fGW-/p.png"
+							class="h-8 me-3" alt="Logo" />
+						<span class="self-center text-3xl font-bold whitespace-nowrap text-white">UFC
+							HOUSES</span>
+					</a>
+				</div>
+				<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+					<div>
+						<h2 class="mb-6 text-lg font-semibold text-white uppercase">Resources</h2>
+						<ul class="text-gray-300 font-medium">
+							<li class="mb-4">
+								<a href="index.html" class="hover:underline">UFC HOUSES</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2 class="mb-6 text-lg font-semibold text-white uppercase">Follow us</h2>
+						<ul class="text-gray-300 font-medium uppercase">
+							<li class="mb-4">
+								<a href="#" class="hover:underline ">Instagram</a>
+							</li>
+							<li>
+								<a href="#" class="hover:underline">TikTok</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2 class="mb-6 text-lg font-semibold text-white uppercase">Legal</h2>
+						<ul class="text-gray-300 font-medium uppercase">
+							<li class="mb-4">
+								<a href="#" class="hover:underline">Privacy Policy</a>
+							</li>
+							<li>
+								<a href="#" class="hover:underline">Terms &amp; Conditions</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+	<!-- FOOTER SECTION ENDED -->
+
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyCEaC_yprIy0mR8OTPm8r3dJaRueH1-leY",
+			authDomain: "ufc-houses.firebaseapp.com",
+			databaseURL: "https://ufc-houses-default-rtdb.asia-southeast1.firebasedatabase.app",
+			projectId: "ufc-houses",
+			storageBucket: "ufc-houses.appspot.com",
+			messagingSenderId: "485649152312",
+			appId: "1:485649152312:web:61a12f0a0deb32c05c29cd",
+			measurementId: "G-QVPENKWRCY"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+
+		import { getDatabase, set, get, update, remove, ref, push, child, onValue, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+		const db = getDatabase();
+
+		const bannerImage = document.querySelector("#bannerImage");
+
+		const thumbnailLink = document.querySelector("#thumbnail-link");
+		const fighter1 = document.querySelector("#fighter-1");
+		const fighter2 = document.querySelector("#fighter-2");
+		const fightCategory = document.querySelector("#fight-category");
+		const liveLink = document.querySelector("#link-live-streaming");
+		const eventDate = document.querySelector("#date-event");
+
+		const upcomingFightContainer = document.getElementById("upcoming-fight");
+
+		const yourLatestArticleContainer = document.getElementById("display-latest-article");
+
+		// Function to get the current banner image link from the database
+		function getCurrentBannerLink() {
+			const bannerRef = ref(db, 'BannerImageLink');
+
+			get(bannerRef).then((snapshot) => {
+				if (snapshot.exists()) {
+					const data = snapshot.val();
+					const bannerKey = Object.keys(data)[0];  // Assuming there's only one banner link
+					const currentLink = data[bannerKey].Link;  // Get the current banner link
+
+					// Set the image src to the current banner link
+					bannerImage.src = currentLink;
+				} else {
+					console.log("No data available");
+				}
+			}).catch((error) => {
+				console.error("Error fetching data: ", error);
+			});
+		}
+
+		// Fetch the current banner link when the page loads
+		document.addEventListener("DOMContentLoaded", getCurrentBannerLink);
+
+		// Referensi ke database path "UpcomingFight"
+		const fightsRef = ref(db, 'UpcomingFight');
+
+		// Mendapatkan data dari Firebase
+		onValue(fightsRef, (snapshot) => {
+			const data = snapshot.val();
+
+			// Menghapus konten yang ada (untuk mencegah duplikasi)
+			upcomingFightContainer.innerHTML = '';
+
+			// Iterasi melalui setiap entri dalam data
+			for (const uid in data) {
+				const fight = data[uid];
+
+				// Membuat elemen HTML untuk setiap item
+				const fightElement = document.createElement('div');
+				fightElement.className = "flex flex-col overflow-hidden shadow-lg my-4";
+
+				// Template untuk elemen HTML
+				fightElement.innerHTML = `
+            <img class="object-cover w-full h-64" id="thumbnail-link" src="${fight.Thumbnail}" alt="Fight Thumbnail">
+            <div class="py-4" style="font-family: 'Oswald', sans-serif;">
+                <div class="flex flex-row gap-2">
+                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-1">${fight.Fighter1.toLowerCase()}</h2>
+                    <h2 class="text-3xl font-bold text-white">Vs</h2>
+                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-2">${fight.Fighter2.toLowerCase()} <ion-icon name="create-outline" class="cursor-pointer" data-uid="${uid}" onclick="openEditModal('${uid}')"></ion-icon></h2>
+                </div>
+                <div class="flex items-center text-gray-100 mt-2">
+                    <p id="fight-category">${fight.FightCategory}</p>
+                    <span class="mx-2">|</span>
+                    <a href="${fight.LiveLink}" class="hover:text-yellow-400" id="link-live-streaming">Link Live Streaming</a>
+                </div>
+                <p class="text-gray-300 mt-2" id="date-event">${new Date(fight.EventDate).toLocaleString()}</p>
+            </div>
+        `;
+
+				// Menambahkan elemen HTML ke dalam upcomingFightContainer
+				upcomingFightContainer.appendChild(fightElement);
+			}
+		}, (errorObject) => {
+			console.error("The read failed: " + errorObject.code);
+		});
+
+		// Mendapatkan referensi table yang diinginkan (Table article)
+		const articlesRef = ref(db, "Article");
+
+		// Mendapatkan data article untuk ditampilkan di section your latest article
+		onValue(articlesRef, (snapshot) => {
+			const data = snapshot.val();
+
+			// Menghapus konten yang ada (untuk mencegah duplikasi)
+			yourLatestArticleContainer.innerHTML = "";
+
+			// Konversi data objek menjadi array untuk mempermudah manipulasi
+			const articlesArray = Object.entries(data).map(([uid, articleData]) => ({ uid, ...articleData }));
+
+			// Jika jumlah artikel lebih dari 3, pilih 3 secara acak
+			let selectedArticles;
+			if (articlesArray.length > 3) {
+				selectedArticles = getRandomArticles(articlesArray, 3);
+			} else {
+				selectedArticles = articlesArray;
+			}
+
+			// Iterasi melalui setiap entri yang dipilih
+			selectedArticles.forEach(({ uid, ArticleThumbnail, ArticleTitle, ArticleCategory, CreatedAt }) => {
+				const articleElement = document.createElement("div");
+				articleElement.className = "flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105";
+
+				// Template untuk elemen HTML
+				articleElement.innerHTML = `
+            <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                <img class="object-cover w-full h-56" src="${ArticleThumbnail}" alt="">
+            </a>
+            <div class="py-4">
+                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                    <h2 class="text-xl font-bold text-white mb-2">${ArticleTitle}</h2>
+                </a>
+                <span style="font-family: 'Oswald', sans-serif;" class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${ArticleCategory}</span>
+                <p class="text-gray-300 mt-2">${new Date(CreatedAt).toLocaleString()}</p>
+                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                    <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
+                </a>
+            </div>
+        `;
+
+				// Menambahkan elemen HTML ke dalam yourLatestArticleContainer
+				yourLatestArticleContainer.appendChild(articleElement);
+			});
+		}, (errorObject) => {
+			console.log("The read failed: " + errorObject.code);
+		});
+
+		// Fungsi untuk memilih N artikel secara acak dari array
+		function getRandomArticles(array, num) {
+			const shuffled = array.sort(() => 0.5 - Math.random());
+			return shuffled.slice(0, num);
+		}
+
+
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+	<script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+</body>
+
+</html>

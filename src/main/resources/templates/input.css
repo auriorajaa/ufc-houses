@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: mainFont;
+  src: url(/src/main/resources/templates/assets/fonts/static/Oswald-Regular.ttf);
+}
