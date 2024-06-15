@@ -8,32 +8,69 @@
 	<link rel="stylesheet" href="/src/main/resources/templates/output.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
-	<link rel="icon"
-		href="https://previews.dropbox.com/p/thumb/ACTlye3RkbGcMjWQjGlVxHe7h3blA6sO5JT_RwQlEnjXg7mfHMsJ4ZF-FRlTDQFE_dzND9nFycPIhrs73TXxFvYh8Cuh_mD4yuLSYX8xDceHNpojBvDF0zAPONHv41vWim1xZlsv8naU5tKqsz0B3WNCIVctaLA8q5ObPMj_KQWiJXRKkq0Iz7ScfnWCftRD4d93leWcb8KsNL0KEr43iswehQpBCLKR8rWPSf-n2ozBkKDx6pRYeJRBbhgUgNiCRuGeM3Hv-mTeaDS30vKkGQDSDQ1ZUlxrHA97YQk_av3JPA86jPb0LC_B4NBwInA7T_KDUvAXsGVH26OJ-zWWblQf/p.png">
+	<link rel="icon" href="/src/main/resources/static/img/icon.png">
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 	<title>UFC HOUSES</title>
+	<style>
+		/* Force scaling to simulate md screen size on all devices */
+		@media (max-width: 768px) {
+			html {
+				zoom: 0.5;
+				/* Adjust zoom level as needed */
+			}
+		}
+	</style>
 </head>
 
 <body class="bg-black" style="font-family: 'Oswald', sans-serif;">
 
 	<!-- NAVBAR SECTION STARTED -->
-	<nav class="bg-black text-white fixed top-0 left-0 right-0 z-10">
+	<nav class="bg-black text-white fixed top-0 left-0 right-0 z-10" style="font-family: 'Oswald', sans-serif;">
 		<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-			<a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-				<img src="https://previews.dropbox.com/p/thumb/ACS4znQfFL3QG_OLpUpUDudDqodc7ouUuRqJEGo9YFPjv_AAJRDNQe9qU95n7Fa5jCRdt05NgtXjDF6gmqyFfStU1pr-7waIGPrmxUWrj_BOSEYXMyombUxbPrqdUiVmfSlBepRsX7_D2S5-u2cAET3s7lgrLd7BrCXpMAh7f0oss-K0VyGo8cbwKTqhq-nJdJxznjZ-WX4TUI4enfCWfg3gG4tkANSyKxEAkp6zaQp2OfrQTItskEyCB7gG16AMNoXKcTR7WoFNs--3qeszNxXIuQz3f_7Lp6fFEDmNAosw9ACxvdhzTPBK8BEcBRvHZ1Cx40FEZV8QW85cbuo8fGW-/p.png"
-					class="h-8" alt="Logo" />
+			<a href="/src/main/resources/templates/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+				<img src="/src/main/resources/static/img/logo.png" class="h-8" alt="Logo" />
 				<span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
 			</a>
+			<button data-collapse-toggle="navbar-default" type="button"
+				class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+				aria-controls="navbar-default" aria-expanded="false">
+				<span class="sr-only">Open main menu</span>
+				<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+					viewBox="0 0 17 14">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M1 1h15M1 7h15M1 13h15" />
+				</svg>
+			</button>
+			<div class="hidden w-full md:block md:w-auto text-xl font-bold uppercase text-white" id="navbar-default">
+				<ul
+					class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+					<li>
+						<a href="/src/main/resources/templates/index.html"
+							class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0"
+							aria-current="page">Home</a>
+					</li>
+					<li>
+						<a href="/src/main/resources/templates/pages/search-article/search-article.html"
+							class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">Search
+							Article</a>
+					</li>
+					<!-- <li>
+						<a href="#"
+							class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">About</a>
+					</li> -->
+				</ul>
+			</div>
 		</div>
 	</nav>
+
 	<!-- NAVBAR SECTION ENDED -->
 	<br>
 	<br>
 	<!-- HERO SECTION STARTED -->
-	<div class="max-w-screen-xl mx-auto p-4">
+	<div class="max-w-screen-xl mx-auto p-4 pt-6">
 		<img id="bannerImage" class="h-full object-cover w-full" src="" alt="image description">
 	</div>
 	<!-- HERO SECTION ENDED -->
@@ -45,7 +82,7 @@
 			<div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
 				<h1 class="text-white text-3xl font-bold uppercase">Upcoming Fight</h1>
 			</div>
-			<div id="upcoming-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			<div id="upcoming-fight" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 			</div>
 		</div>
 		<!-- UPCOMING FIGHT SECTION ENDED -->
@@ -54,14 +91,14 @@
 
 	<!-- SEE WHAT'S HOT SECTION STARTED -->
 	<div class="max-w-screen-xl mx-auto p-4">
-		<h1 class="text-white font-bold text-3xl my-3">SEE WHAT'S <span class="text-red-600">HOT</span>
+		<h1 class="text-white font-bold text-3xl uppercase">SEE WHAT'S <span class="text-red-600">HOT</span>
 		</h1>
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="display-latest-article">
+		<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="display-latest-article">
 
 		</div>
 
 		<div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
-			<a href="/src/main/resources/templates/pages/search-article/search-article.html">
+			<a th:href="@{/pages/search-article}">
 				<h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">SEE
 					ALL</h1>
 			</a>
@@ -77,8 +114,7 @@
 			<div class="md:flex md:justify-between">
 				<div class="mb-6 md:mb-0">
 					<a href="index.html" class="flex items-center">
-						<img src="https://previews.dropbox.com/p/thumb/ACS4znQfFL3QG_OLpUpUDudDqodc7ouUuRqJEGo9YFPjv_AAJRDNQe9qU95n7Fa5jCRdt05NgtXjDF6gmqyFfStU1pr-7waIGPrmxUWrj_BOSEYXMyombUxbPrqdUiVmfSlBepRsX7_D2S5-u2cAET3s7lgrLd7BrCXpMAh7f0oss-K0VyGo8cbwKTqhq-nJdJxznjZ-WX4TUI4enfCWfg3gG4tkANSyKxEAkp6zaQp2OfrQTItskEyCB7gG16AMNoXKcTR7WoFNs--3qeszNxXIuQz3f_7Lp6fFEDmNAosw9ACxvdhzTPBK8BEcBRvHZ1Cx40FEZV8QW85cbuo8fGW-/p.png"
-							class="h-8 me-3" alt="Logo" />
+						<img src="/src/main/resources/static/img/logo.png" class="h-8 me-3" alt="Logo" />
 						<span class="self-center text-3xl font-bold whitespace-nowrap text-white">UFC
 							HOUSES</span>
 					</a>
@@ -257,16 +293,16 @@
 
 				// Template untuk elemen HTML
 				articleElement.innerHTML = `
-            <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+            <a th:href="@{/pages/article?uid=${uid}}">
                 <img class="object-cover w-full h-56" src="${ArticleThumbnail}" alt="">
             </a>
             <div class="py-4">
-                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                <a href="@{/pages/article?uid=${uid}}">
                     <h2 class="text-xl font-bold text-white mb-2">${ArticleTitle}</h2>
                 </a>
                 <span style="font-family: 'Oswald', sans-serif;" class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${ArticleCategory}</span>
                 <p class="text-gray-300 mt-2">${new Date(CreatedAt).toLocaleString()}</p>
-                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                <a href="@{/pages/article?uid=${uid}}">
                     <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
                 </a>
             </div>

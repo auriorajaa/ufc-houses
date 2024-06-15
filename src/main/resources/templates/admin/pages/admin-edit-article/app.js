@@ -1,11 +1,6 @@
 // Inisialisasi SimpleMDE
 var simplemde = new SimpleMDE({
     autofocus: true,
-    autosave: {
-        enabled: true,
-        uniqueId: "MyUniqueID",
-        delay: 1000,
-    },
     blockStyles: {
         bold: "**",
         italic: "*"
@@ -21,7 +16,7 @@ var simplemde = new SimpleMDE({
         link: ["[", "](http://)"],
         table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
     },
-    lineWrapping: true,
+    lineWrapping: false,
     parsingConfig: {
         allowAtxHeaderWithoutSpace: true,
         strikethrough: false,

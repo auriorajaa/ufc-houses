@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="/src/main/resources/templates/output.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
-    <link rel="icon"
-        href="https://previews.dropbox.com/p/thumb/ACQheqz_R9R943TV11N-nGG0Ebppa5hqrv7IVzNSSey8qjdIE7CHLgwidpJ81hBqQdmEEBhajJ_T8cPwYY1TuiwnuxAc6lfwczP3LNUhIQWHDnluuQNTBj9-JSTjKdEG-a5YS1jPHzqbS9rKBYdWr50DrDLbgSfQSDzrZQMD-PaJI4Yw16hEgUHXqhuHP9VtRg_6DxAgOfDWFwYJPgXjAKypcJToln6QmD2pl4XVyky1ALXiiburTlim6OsTHwR4lPQZZARymabI9zT0eSFD6V9h8Q-Kd3MuXPfnuThLd68uQx5djBzNb4kehR37w5bOr0zEc9eoWSMy7gAZWbsoZgwG/p.png">
+    <link rel="icon" href="/src/main/resources/static/img/icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +28,7 @@
         <nav class="bg-black text-white fixed top-0 left-0 right-0 z-10" style="font-family: 'Oswald', sans-serif;">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://previews.dropbox.com/p/thumb/ACTOHoeAZ7cSSjfqnbfr5PeGzQBqlc6PdOLSAVI9nDWva-qwhyRh9g0FAsJh4FpBKmCqbKlll5xgn8LcXdTfyvMSlrXjz0x98tzaGRLPxl-xs_OPFmpYGDgicvCBG7w8b2NinHVj9rM14op99vtPI2LtCR9VcZO2dF1zgsTtncpWaVdopM1SUb9m6mLWMb-xJ7GxykmaX99-TkkdnEOHWGsRP9nTao2e756Efz7Fjvns1F6MHCVSjT_Jq98o7WqMb_OnGsYlr-uTg4fRyrgDOCf9nTZN9GufIDGQkAoBgaYBBOphsy72FBqhH2ylHk9Hm5BbHaWhQ4V5tS2cIxmg6AnQ/p.png"
-                        class="h-8" alt="Logo" />
+                    <img src="/src/main/resources/static/img/logo.png" class="h-8" alt="Logo" />
                     <span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
                 </a>
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -157,10 +155,6 @@
             </div>
             <!-- IMAGE HOME BANNER SECTION ENDED -->
 
-
-            <br><br><br>
-
-
             <div id="fight-event-modal" tabindex="-1" aria-hidden="true"
                 class="backdrop-blur-sm bg-black bg-opacity-75 hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-md max-h-full">
@@ -242,13 +236,6 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
             <div id="add-fight-event-modal" tabindex="-1" aria-hidden="true"
                 class="backdrop-blur-sm bg-black bg-opacity-75 hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-md max-h-full">
@@ -323,14 +310,6 @@
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
             <!-- UPCOMING FIGHT SECTION STARTED -->
             <div class="upcoming-fight py-4">
                 <div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
@@ -347,13 +326,23 @@
             <!-- YOUR LATEST ARTICLE SECTION STARTED -->
             <h1 class="text-white text-3xl font-bold uppercase" style="font-family: 'Oswald', sans-serif;">Your Latest
                 Article</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="display-latest-article">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="display-latest-article">
 
+            </div>
+
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
+                <a href="/src/main/resources/templates/admin/pages/admin-search-article/index.html">
+                    <h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">
+                        SEE
+                        ALL</h1>
+                </a>
             </div>
             <!-- YOUR LATEST ARTICLE SECTION ENDED -->
         </main>
         <!-- MAIN CONTENT SECTION ENDED -->
     </div>
+
+    <br>
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -611,39 +600,61 @@
             // Menghapus konten yang ada (untuk mencegah duplikasi)
             yourLatestArticleContainer.innerHTML = "";
 
-            // Iterasi melalui setiap entri dalam data
-            for (const uid in data) {
-                const articleData = data[uid];
+            if (data) {
+                // Konversi data objek menjadi array untuk mempermudah manipulasi
+                const articlesArray = Object.entries(data).map(([uid, articleData]) => ({ uid, ...articleData }));
 
-                const articleElement = document.createElement("div");
-                articleElement.className = "flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105";
+                // Jika data tidak kosong, pilih 3 artikel
+                let selectedArticles;
 
-                // Template untuk elemen HTML
-                articleElement.innerHTML = `<a href="/src/main/resources/templates/pages/article/index.html"><img
-                            class="object-cover w-full h-56"
-                            src="${articleData.ArticleThumbnail}"
-                            alt=""></a>
-                    <div class="py-4">
-                        <a href="/src/main/resources/templates/pages/article/index.html">
-                            <h2 class="text-xl font-bold text-white mb-2">${articleData.ArticleTitle}
-                            </h2>
-                            <h6 style="display: none;" class="text-white">UID: ${uid}</h6>
-                        </a>
-                        <span style="font-family: 'Oswald', sans-serif;"
-                            class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${articleData.ArticleCategory}</span>
-                        <p class="text-gray-300 mt-2">${new Date(articleData.CreatedAt).toLocaleString()}</p>
-                        <a href="">
-                            <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
-                        </a>
-                    </div>
-                    `;
+                // Pilih tiga artikel secara acak
+                if (articlesArray.length > 6) {
+                    selectedArticles = getRandomArticles(articlesArray, 6)
+                } else {
+                    // Jika jumlah artikel kurang dari atau sama dengan 3, ambil semua artikel
+                    selectedArticles = articlesArray;
+                }
 
-                // Menambahkan elemen HTML ke dalam yourLatestArticleContainer
-                yourLatestArticleContainer.appendChild(articleElement);
+                // Iterasi melalui setiap entri yang dipilih
+                selectedArticles.forEach(({ uid, ArticleThumbnail, ArticleTitle, ArticleCategory, CreatedAt }) => {
+                    const articleElement = document.createElement("div");
+                    articleElement.className = "itemBox flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105";
+
+                    // Template untuk elemen HTML
+                    articleElement.innerHTML = `
+                <a href="/src/main/resources/templates/admin/pages/admin-article/index.html?uid=${uid}">
+                    <img class="object-cover w-full h-56" src="${ArticleThumbnail}" alt="">
+                </a>
+                <div class="py-4">
+                    <a href="/src/main/resources/templates/admin/pages/admin-article/index.html?uid=${uid}">
+                        <h2 class="text-xl font-bold text-white mb-2">${ArticleTitle}</h2>
+                    </a>
+                    <span style="font-family: 'Oswald', sans-serif;" class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${ArticleCategory}</span>
+                    <p class="text-gray-300 mt-2">${new Date(CreatedAt).toLocaleString()}</p>
+                    <a href="/src/main/resources/templates/admin/pages/admin-article/index.html?uid=${uid}">
+                        <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
+                    </a>
+                </div>
+            `;
+
+                    // Menambahkan elemen HTML ke dalam yourLatestArticleContainer
+                    yourLatestArticleContainer.appendChild(articleElement);
+                });
+            } else {
+                // Jika tidak ada data, tampilkan pesan
+                const noDataElement = document.createElement("div");
+                noDataElement.innerHTML = "<p>No articles available.</p>";
+                yourLatestArticleContainer.appendChild(noDataElement);
             }
         }, (errorObject) => {
             console.log("The read failed: " + errorObject.code);
-        })
+        });
+
+        // Fungsi untuk memilih N artikel secara acak dari array
+        function getRandomArticles(array, num) {
+            const shuffled = array.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, num);
+        }
     </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

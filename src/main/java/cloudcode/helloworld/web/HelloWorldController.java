@@ -32,4 +32,9 @@ public final class HelloWorldController {
     return "pages/search-article/search-article";
   }
 
+  @RequestMapping("/pages/article")
+  public String article() {
+    return "pages/article/index";
+  }
+
 }

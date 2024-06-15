@@ -69,12 +69,12 @@
                 <ul
                     class="uppercase font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                     <li>
-                        <a href="/templates/admin/pages/admin-home/index.html"
+                        <a href="/src/main/resources/templates/admin/pages/admin-home/index.html"
                             class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0"
                             aria-current="page">Admin Home</a>
                     </li>
                     <li>
-                        <a href="#" class=" block py-2 px-3 text-white rounded md:bg-transparent md:p-0">Create
+                        <a href="#" class=" block py-2 px-3 text-white rounded md:bg-transparent md:p-0">Edit
                             Article</a>
                     </li>
                 </ul>
@@ -90,6 +90,10 @@
     <main class="max-w-screen-xl mt-4 mx-auto p-4 pt-6">
 
         <div class="flex flex-col">
+            <input type="hidden" id="article-uid"
+                class="border-none text-black text-2xl focus:ring-white focus:border-none block w-full p-2.5 placeholder-gray-400 placeholder-opacity-70"
+                placeholder="UID" required="" style="font-family: 'Oswald', sans-serif;">
+
             <input type="text" id="article-title"
                 class="border-none text-black text-5xl focus:ring-white focus:border-none block w-full p-2.5 placeholder-gray-400 placeholder-opacity-70"
                 placeholder="Title" required="" style="font-family: 'Oswald', sans-serif;">
@@ -114,8 +118,12 @@
         </div>
         <textarea id="content-article" cols="30" rows="10"></textarea>
         <button type="submit" id="submit-article-btn"
-            class=" text-white bg-black hover:underline border border-black font-medium text-sm px-5 py-2.5 text-center">
-            Upload Article
+            class=" text-white bg-black mr-2 hover:underline border border-black font-medium text-sm px-5 py-2.5 text-center">
+            Update Article
+        </button>
+        <button type="submit" id="delete-article-btn"
+            class=" text-white bg-red-600 hover:underline border border-red-600 font-medium text-sm px-5 py-2.5 text-center">
+            Delete Article
         </button>
     </main>
     <!-- MAIN CONTENT SECTION ENDED -->
@@ -124,11 +132,9 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getDatabase, set, get, update, remove, ref, push, child, onValue, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
         // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
             apiKey: "AIzaSyCEaC_yprIy0mR8OTPm8r3dJaRueH1-leY",
             authDomain: "ufc-houses.firebaseapp.com",
@@ -143,36 +149,107 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+        const db = getDatabase(app);
 
-        import { getDatabase, set, get, update, remove, ref, push, child, onValue, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        // Function to get query parameter from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-        const db = getDatabase();
+        // Get UID from URL
+        const uid = getQueryParam('uid');
 
+        // Query selectors for the form inputs
+        const articleUIDInput = document.querySelector("#article-uid");
         const articleTitleInput = document.querySelector("#article-title");
         const categoryArticleInput = document.querySelector("#category-article");
         const thumbnailArticleLinkInput = document.querySelector("#thumbnail-article-link");
         const articleTextAreaInput = document.querySelector("#content-article");
         const buttonSubmitArticle = document.querySelector("#submit-article-btn");
+        const buttonDeleteArticle = document.querySelector("#delete-article-btn");
 
-        function insertArticle() {
-            set(push(ref(db, "Article")), {
+        // Initialize SimpleMDE editor
+        // Inisialisasi SimpleMDE
+        var simplemde = new SimpleMDE({
+            autofocus: true,
+            blockStyles: {
+                bold: "**",
+                italic: "*"
+            },
+            element: document.getElementById("content-article"),
+            forceSync: true,
+            hideIcons: ["guide", "heading", "code", "table", "preview", "side-by-side", "fullscreen"],
+            indentWithTabs: false,
+            initialValue: "Loading...",
+            insertTexts: {
+                horizontalRule: ["", "\n\n-----\n\n"],
+                image: ["![](http://", ")"],
+                link: ["[", "](http://)"],
+                table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
+            },
+            lineWrapping: true,
+            status: false,
+            status: ["autosave", "lines", "words"], // Optional usage
+        });
+
+        if (uid) {
+            // Reference to the article in the database
+            const articleRef = ref(db, `Article/${uid}`);
+
+            // Fetch article data from Firebase
+            get(articleRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const articleData = snapshot.val();
+                    // Set the form inputs to the retrieved values
+                    articleUIDInput.value = uid;
+                    articleTitleInput.value = articleData.ArticleTitle;
+                    categoryArticleInput.value = articleData.ArticleCategory;
+                    thumbnailArticleLinkInput.value = articleData.ArticleThumbnail;
+                    // Set the content in the SimpleMDE editor
+                    simplemde.value(articleData.ArticleContent);
+                } else {
+                    console.log("No data available for this article UID.");
+                }
+            }).catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+        } else {
+            console.log("No article UID provided in URL.");
+        }
+
+        function updateArticle() {
+            update(ref(db, "Article/" + articleUIDInput.value), {
                 ArticleTitle: articleTitleInput.value,
-                ArticleCategory: categoryArticleInput.value,
                 ArticleThumbnail: thumbnailArticleLinkInput.value,
-                ArticleContent: articleTextAreaInput.value,
-                CreatedAt: new Date().toISOString()
+                ArticleCategory: categoryArticleInput.value,
+                ArticleContent: articleTextAreaInput.value
             })
                 .then(() => {
-                    alert("Article sucessfully created");
+                    alert("Article successfully updated");
                 })
                 .catch((error) => {
-                    alert("Something goes wwrong!");
+                    alert(error);
                 })
         }
 
-        buttonSubmitArticle.addEventListener("click", insertArticle);
+        // Attach event listener to the submit button
+        buttonSubmitArticle.addEventListener("click", updateArticle);
+
+        function deleteArticle() {
+            remove(ref(db, "Article/" + articleUIDInput.value))
+                .then(() => {
+                    alert("Article successfully deleted");
+                    window.location.href = "/src/main/resources/templates/admin/pages/admin-home/index.html";
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        }
+
+        buttonDeleteArticle.addEventListener("click", deleteArticle);
     </script>
-    <script src="app.js"></script>
+
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
