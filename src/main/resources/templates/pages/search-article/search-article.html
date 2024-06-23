@@ -20,14 +20,6 @@
             color: white;
         }
 
-        /* Force scaling to simulate md screen size on all devices */
-        @media (max-width: 768px) {
-            html {
-                zoom: 0.5;
-                /* Adjust zoom level as needed */
-            }
-        }
-
         #list-search:hover {
             color: #000000;
             text-decoration: underline #000000;
@@ -110,19 +102,19 @@
             <br>
             <div class="max-w-screen-md p-3 mt-3 mx-auto" id="myBtnContainer">
                 <ul
-                    class="list-none grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 grid-flow-row gap-4 items-center text-center">
+                    class="list-none grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 grid-flow-row gap-4 items-center text-center">
                     <li data-filter="All"
                         class="list active cursor-pointer focus:outline-none focus:ring-4 bg-gray-200 hover:bg-white hover:text-black hover:border-black focus:ring-gray-900 font-medium text-sm px-2 py-2">
                         All</li>
-                    <li data-filter="featherweight"
-                        class="list focus:outline-none cursor-pointer bg-gray-200 hover:bg-white hover:text-black hover:border-black focus:ring-4 focus:ring-gray-900 font-medium text-sm px-2 py-2">
-                        Featherweight</li>
                     <li data-filter="lightweight"
                         class="list focus:outline-none bg-gray-200 cursor-pointer hover:bg-white hover:text-black hover:border-black focus:ring-4 focus:ring-gray-900 font-medium text-sm px-2 py-2">
                         Lightweight</li>
-                    <li data-filter="welterweight"
+                    <li data-filter="light-heavyweight"
+                        class="list focus:outline-none bg-gray-200 cursor-pointer hover:bg-white hover:text-black hover:border-black focus:ring-4 focus:ring-gray-900 font-medium text-sm px-2 py-2">
+                        Light-Heavyweight</li>
+                    <li data-filter="middleweight"
                         class="list focus:outline-none bg-gray-200 hover:bg-white hover:text-black hover:border-black cursor-pointer focus:ring-4 focus:ring-gray-900 font-medium text-sm px-2 py-2">
-                        Welterweight</li>
+                        Middleweight</li>
                     <li data-filter="heavyweight"
                         class="list focus:outline-none bg-gray-200 hover:bg-white hover:text-black hover:border-black focus:ring-4 cursor-pointer focus:ring-gray-900 font-medium text-sm px-2 py-2">
                         Heavyweight</li>
@@ -138,7 +130,7 @@
 
     <!-- ALL ARTICLE SECTION STARTED -->
     <div class="max-w-screen-xl mx-auto p-4">
-        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="display-article">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="display-article">
 
 
         </div>

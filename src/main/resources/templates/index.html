@@ -13,15 +13,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 	<title>UFC HOUSES</title>
-	<style>
-		/* Force scaling to simulate md screen size on all devices */
-		@media (max-width: 768px) {
-			html {
-				zoom: 0.5;
-				/* Adjust zoom level as needed */
-			}
-		}
-	</style>
 </head>
 
 <body class="bg-black" style="font-family: 'Oswald', sans-serif;">
@@ -65,47 +56,49 @@
 	<!-- NAVBAR SECTION ENDED -->
 	<br>
 	<br>
-	<!-- HERO SECTION STARTED -->
-	<div class="max-w-screen-xl mx-auto p-4 pt-6">
-		<img id="bannerImage" class="h-full object-cover w-full" src="" alt="image description">
-	</div>
-	<!-- HERO SECTION ENDED -->
+	<section class="px-2">
+		<!-- HERO SECTION STARTED -->
+		<div class="max-w-screen-xl mx-auto p-4 pt-6">
+			<img id="bannerImage" class="h-full object-cover w-full" src="" alt="image description">
+		</div>
+		<!-- HERO SECTION ENDED -->
 
-	<!-- UPCOMING FIGHTS SECTION STARTED -->
-	<div class="max-w-screen-xl mx-auto p-4">
-		<!-- UPCOMING FIGHT SECTION STARTED -->
-		<div class="upcoming-fight py-4">
-			<div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
-				<h1 class="text-white text-3xl font-bold uppercase">Upcoming Fight</h1>
+		<!-- UPCOMING FIGHTS SECTION STARTED -->
+		<div class="max-w-screen-xl mx-auto p-4">
+			<!-- UPCOMING FIGHT SECTION STARTED -->
+			<div class="upcoming-fight py-4">
+				<div class="flex flex-row justify-between items-center" style="font-family: 'Oswald', sans-serif;">
+					<h1 class="text-white text-3xl font-bold uppercase">Upcoming Fight</h1>
+				</div>
+				<div id="upcoming-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				</div>
 			</div>
-			<div id="upcoming-fight" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			<!-- UPCOMING FIGHT SECTION ENDED -->
+		</div>
+		<!-- UPCOMING FIGHTS SECTION ENDED -->
+
+		<!-- SEE WHAT'S HOT SECTION STARTED -->
+		<div class="max-w-screen-xl mx-auto p-4">
+			<h1 class="text-white font-bold text-3xl uppercase">SEE WHAT'S <span class="text-red-600">HOT</span>
+			</h1>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="display-latest-article">
+
 			</div>
+
+			<br>
+			<br>
+			<br>
+
+			<div class="max-w-screen-xl items-center justify-center mx-auto">
+				<a th:href="@{/pages/search-article}">
+					<h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">SEE
+						ALL</h1>
+				</a>
+			</div>
+
 		</div>
-		<!-- UPCOMING FIGHT SECTION ENDED -->
-	</div>
-	<!-- UPCOMING FIGHTS SECTION ENDED -->
-
-	<!-- SEE WHAT'S HOT SECTION STARTED -->
-	<div class="max-w-screen-xl mx-auto p-4">
-		<h1 class="text-white font-bold text-3xl uppercase">SEE WHAT'S <span class="text-red-600">HOT</span>
-		</h1>
-		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="display-latest-article">
-
-		</div>
-
-		<br>
-		<br>
-		<br>
-
-		<div class="max-w-screen-xl items-center justify-center mx-auto">
-			<a th:href="@{/pages/search-article}">
-				<h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">SEE
-					ALL</h1>
-			</a>
-		</div>
-
-	</div>
-	<!-- SEE WHAT'S HOT SECTION ENDED -->
+		<!-- SEE WHAT'S HOT SECTION ENDED -->
+	</section>
 
 	<br>
 	<br>
