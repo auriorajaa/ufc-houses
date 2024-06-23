@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/templates/input.css">
-    <link rel="stylesheet" href="/src/main/resources/templates/output.css">
+    <link rel="stylesheet" th:href="@{/css/input.css}">
+    <link rel="stylesheet" th:href="@{/css/output.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
-    <link rel="icon" href="/src/main/resources/static/img/icon.png">
+    <link rel="icon" th:href="@{/img/icon.png}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +30,11 @@
         #article-content a:hover {
             text-decoration: underline;
         }
+
+        #article-content p {
+            margin-bottom: 1em;
+            /* Atau atur sesuai kebutuhan, contoh: 2em atau 10px */
+        }
     </style>
 </head>
 
@@ -39,8 +43,8 @@
     <!-- NAVBAR SECTION STARTED -->
     <nav class="bg-black text-white fixed top-0 left-0 right-0 z-10" style="font-family: 'Oswald', sans-serif;">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/src/main/resources/templates/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="/src/main/resources/static/img/logo.png" class="h-8" alt="Logo" />
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img th:src="@{/img/logo.png}" class="h-8" alt="Logo" />
                 <span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
@@ -57,12 +61,12 @@
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                     <li>
-                        <a href="/src/main/resources/templates/index.html"
+                        <a th:href="@{/}"
                             class="block py-2 px-3 text-gray-400 hover:text-white rounded md:bg-transparent md:p-0"
                             aria-current="page">Back to Home</a>
                     </li>
                     <li>
-                        <a href="/src/main/resources/templates/pages/search-article/search-article.html"
+                        <a th:href="@{/pages/search-article}"
                             class="block py-2 px-3 text-gray-400 hover:text-white rounded md:bg-transparent md:p-0"
                             aria-current="page">Search for Article</a>
                     </li>
@@ -93,7 +97,8 @@
 
                     </figure>
 
-                    <div id="article-content" class="text-gray-100"></div>
+                    <article id="article-content" class="text-white format format-sm sm:format-base lg:format-lg pt-4">
+                    </article>
                 </article>
             </div>
         </main>
@@ -168,8 +173,11 @@
                     document.getElementById('article-title').innerText = articleData.ArticleTitle;
                     document.getElementById('article-category').innerText = articleData.ArticleCategory;
                     document.getElementById('article-thumbnail').src = articleData.ArticleThumbnail;
-                    document.getElementById('article-content').innerText = articleData.ArticleContent;
                     document.getElementById('article-date').innerText = new Date(articleData.CreatedAt).toLocaleString()
+
+                    marked.setOptions({
+                        breaks: false, // Hanya double enter yang dianggap sebagai pemisah paragraf
+                    });
 
                     // Convert Markdown to HTML
                     const htmlContent = marked.parse(articleData.ArticleContent);
@@ -190,11 +198,11 @@
             articleElement.className = "w-80 transform transition-transform duration-300 ease-in-out hover:scale-105";
 
             const articleHTML = `
-        <a href="/src/main/resources/templates/pages/article/index.html?uid=${article.uid}">
+        <a href="/pages/article?uid=${article.uid}">
             <img src="${article.ArticleThumbnail}" class="mb-5" alt="${article.ArticleTitle}">
         </a>
         <h2 class="mb-2 text-xl font-bold text-gray-200" style="font-family: 'Oswald', sans-serif;">
-            <a href="/src/main/resources/templates/pages/article/index.html?uid=${article.uid}">${article.ArticleTitle}</a>
+            <a href="/pages/article?uid=${article.uid}">${article.ArticleTitle}</a>
         </h2>
     `;
             articleElement.innerHTML = articleHTML;
@@ -243,7 +251,6 @@
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>

@@ -39,11 +39,11 @@ var simplemde = new SimpleMDE({
         return "Loading...";
     },
     promptURLs: true,
-    renderingConfig: {
-        singleLineBreaks: true,
-    },
     shortcuts: {
         drawTable: "Cmd-Alt-T"
+    },
+    renderingConfig: {
+        singleLineBreaks: false, // Hanya double enter yang akan dianggap sebagai pemisah paragraf
     },
     showIcons: ["code", "table"],
     spellChecker: false,

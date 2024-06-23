@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/templates/input.css">
-    <link rel="stylesheet" href="/src/main/resources/templates/output.css">
+    <link rel="stylesheet" th:href="@{/css/input.css}">
+    <link rel="stylesheet" th:href="@{/css/output.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/node_modules/flowbite/dist/flowbite.min.css">
-    <link rel="icon"
-        href="https://previews.dropbox.com/p/thumb/ACQheqz_R9R943TV11N-nGG0Ebppa5hqrv7IVzNSSey8qjdIE7CHLgwidpJ81hBqQdmEEBhajJ_T8cPwYY1TuiwnuxAc6lfwczP3LNUhIQWHDnluuQNTBj9-JSTjKdEG-a5YS1jPHzqbS9rKBYdWr50DrDLbgSfQSDzrZQMD-PaJI4Yw16hEgUHXqhuHP9VtRg_6DxAgOfDWFwYJPgXjAKypcJToln6QmD2pl4XVyky1ALXiiburTlim6OsTHwR4lPQZZARymabI9zT0eSFD6V9h8Q-Kd3MuXPfnuThLd68uQx5djBzNb4kehR37w5bOr0zEc9eoWSMy7gAZWbsoZgwG/p.png">
+    <link rel="icon" th:href="@{/img/icon.png}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +21,7 @@
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="#" class="flex items-center mb-6 text-4xl font-extrabold text-white"
                 style="font-family: 'Oswald', sans-serif;">
-                <img class="w-16 h-16 mr-2" src="/src/main/resources/static/img/logo.png" alt="logo">
+                <img class="w-16 h-16 mr-2" th:src="@{/img/logo.png}" alt="logo">
                 UFC HOUSES ADMIN
             </a>
             <div class="w-full bg-white shadow md:mt-0 sm:max-w-md xl:p-0">
@@ -57,7 +55,7 @@
                             class="w-full text-white bg-black hover:bg-white hover:text-black border border-black font-medium text-sm px-5 py-2.5 text-center">Create
                             an account</button>
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Already have an account? <a href="/src/main/resources/templates/admin/index.html"
+                            Already have an account? <a th:href="@{/admin}"
                                 class="font-medium text-black hover:underline">Login
                                 here</a>
                         </p>
@@ -104,24 +102,26 @@
             const signUpEmail = adminEmail.value;
             const signUpPassword = adminPassword.value;
 
-            createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    console.log(user);
-                    alert("Your account has been created!")
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.log(errorCode + errorMessage);
-                })
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword);
+                const user = userCredential.user;
+                alert("Account successfully created");
+                window.location.reload();  // Refresh halaman setelah akun berhasil dibuat
+            } catch (error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode + errorMessage);
+                alert("Error creating account: " + errorMessage);  // Menampilkan pesan error yang lebih informatif
+            }
         }
 
-        signupAdminBtn.addEventListener("click", userSignUp);
+        signupAdminBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // Mencegah halaman untuk reload atau action default lainnya
+            userSignUp();
+        });
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>

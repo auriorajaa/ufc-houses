@@ -37,4 +37,38 @@ public final class HelloWorldController {
     return "pages/article/index";
   }
 
+  @RequestMapping("/admin")
+  public String adminLogin() {
+    return "admin/index";
+  }
+
+  @RequestMapping("/admin-signup")
+  public String adminSignup() {
+    return "admin/sign-up";
+  }
+
+  @RequestMapping("/admin/pages/home")
+  public String adminHome() {
+    return "admin/pages/admin-home/index";
+  }
+
+  @RequestMapping("/admin/pages/search-article")
+  public String adminSearchArticle() {
+    return "admin/pages/admin-search-article/index";
+  }
+
+  @RequestMapping("/admin/pages/article")
+  public String adminArticle() {
+    return "admin/pages/admin-article/index";
+  }
+
+  @RequestMapping("/admin/pages/create-article")
+  public String adminCreateArticle() {
+    return "admin/pages/admin-create-article/admin-create-article";
+  }
+
+  @RequestMapping("/admin/pages/edit-article")
+  public String adminEditArticle() {
+    return "admin/pages/admin-edit-article/index";
+  }
 }
