@@ -38,8 +38,7 @@
 				class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 				aria-controls="navbar-default" aria-expanded="false">
 				<span class="sr-only">Open main menu</span>
-				<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-					viewBox="0 0 17 14">
+				<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
 					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 						d="M1 1h15M1 7h15M1 13h15" />
 				</svg>
@@ -49,11 +48,10 @@
 					class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
 					<li>
 						<a href="/src/main/resources/templates/index.html"
-							class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0"
-							aria-current="page">Home</a>
+							class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
 					</li>
 					<li>
-						<a href="/src/main/resources/templates/pages/search-article/search-article.html"
+						<a th:href="@{/pages/search-article}"
 							class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">Search
 							Article</a>
 					</li>
@@ -65,7 +63,6 @@
 			</div>
 		</div>
 	</nav>
-
 	<!-- NAVBAR SECTION ENDED -->
 	<br>
 	<br>
@@ -93,11 +90,15 @@
 	<div class="max-w-screen-xl mx-auto p-4">
 		<h1 class="text-white font-bold text-3xl uppercase">SEE WHAT'S <span class="text-red-600">HOT</span>
 		</h1>
-		<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="display-latest-article">
+		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="display-latest-article">
 
 		</div>
 
-		<div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
+		<br>
+		<br>
+		<br>
+
+		<div class="max-w-screen-xl items-center justify-center mx-auto">
 			<a th:href="@{/pages/search-article}">
 				<h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">SEE
 					ALL</h1>
@@ -107,55 +108,20 @@
 	</div>
 	<!-- SEE WHAT'S HOT SECTION ENDED -->
 
+	<br>
+	<br>
+
 	<!-- FOOTER SECTION STARTED -->
-
-	<footer class="bg-black mt-7">
+	<footer class="bg-black">
 		<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-			<div class="md:flex md:justify-between">
-				<div class="mb-6 md:mb-0">
-					<a href="index.html" class="flex items-center">
-						<img src="/src/main/resources/static/img/logo.png" class="h-8 me-3" alt="Logo" />
-						<span class="self-center text-3xl font-bold whitespace-nowrap text-white">UFC
-							HOUSES</span>
-					</a>
-				</div>
-				<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-					<div>
-						<h2 class="mb-6 text-lg font-semibold text-white uppercase">Resources</h2>
-						<ul class="text-gray-300 font-medium">
-							<li class="mb-4">
-								<a href="index.html" class="hover:underline">UFC HOUSES</a>
-							</li>
-						</ul>
-					</div>
-					<div>
-						<h2 class="mb-6 text-lg font-semibold text-white uppercase">Follow us</h2>
-						<ul class="text-gray-300 font-medium uppercase">
-							<li class="mb-4">
-								<a href="#" class="hover:underline ">Instagram</a>
-							</li>
-							<li>
-								<a href="#" class="hover:underline">TikTok</a>
-							</li>
-						</ul>
-					</div>
-					<div>
-						<h2 class="mb-6 text-lg font-semibold text-white uppercase">Legal</h2>
-						<ul class="text-gray-300 font-medium uppercase">
-							<li class="mb-4">
-								<a href="#" class="hover:underline">Privacy Policy</a>
-							</li>
-							<li>
-								<a href="#" class="hover:underline">Terms &amp; Conditions</a>
-							</li>
-						</ul>
-					</div>
-				</div>
+			<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+			<div class="sm:flex sm:items-center sm:justify-between">
+				<span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="#" class="hover:underline">Ufc
+						Houses</a>. All Rights Reserved.
+				</span>
 			</div>
-
 		</div>
 	</footer>
-
 	<!-- FOOTER SECTION ENDED -->
 
 	<script type="module">
@@ -221,7 +187,6 @@
 
 		// Fetch the current banner link when the page loads
 		document.addEventListener("DOMContentLoaded", getCurrentBannerLink);
-
 		// Referensi ke database path "UpcomingFight"
 		const fightsRef = ref(db, 'UpcomingFight');
 
@@ -232,13 +197,20 @@
 			// Menghapus konten yang ada (untuk mencegah duplikasi)
 			upcomingFightContainer.innerHTML = '';
 
-			// Iterasi melalui setiap entri dalam data
-			for (const uid in data) {
-				const fight = data[uid];
+			// Konversi data dari objek menjadi array
+			const fightArray = Object.keys(data).map(uid => ({
+				uid,
+				...data[uid]
+			}));
 
+			// Urutkan array berdasarkan CreatedAt yang terbaru
+			fightArray.sort((a, b) => new Date(a.EventDate) - new Date(b.EventDate));
+
+			// Iterasi melalui setiap item dalam array yang sudah diurutkan
+			fightArray.forEach(fight => {
 				// Membuat elemen HTML untuk setiap item
 				const fightElement = document.createElement('div');
-				fightElement.className = "flex flex-col overflow-hidden shadow-lg my-4";
+				fightElement.className = "flex flex-col overflow-hidden shadow-lg my-2";
 
 				// Template untuk elemen HTML
 				fightElement.innerHTML = `
@@ -247,7 +219,7 @@
                 <div class="flex flex-row gap-2">
                     <h2 class="text-3xl font-bold text-white capitalize" id="fighter-1">${fight.Fighter1.toLowerCase()}</h2>
                     <h2 class="text-3xl font-bold text-white">Vs</h2>
-                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-2">${fight.Fighter2.toLowerCase()} <ion-icon name="create-outline" class="cursor-pointer" data-uid="${uid}" onclick="openEditModal('${uid}')"></ion-icon></h2>
+                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-2">${fight.Fighter2.toLowerCase()} <ion-icon name="create-outline" class="cursor-pointer" data-uid="${fight.uid}" onclick="openEditModal('${fight.uid}')"></ion-icon></h2>
                 </div>
                 <div class="flex items-center text-gray-100 mt-2">
                     <p id="fight-category">${fight.FightCategory}</p>
@@ -260,15 +232,16 @@
 
 				// Menambahkan elemen HTML ke dalam upcomingFightContainer
 				upcomingFightContainer.appendChild(fightElement);
-			}
+			});
 		}, (errorObject) => {
 			console.error("The read failed: " + errorObject.code);
 		});
 
-		// Mendapatkan referensi table yang diinginkan (Table article)
+
+		// Mendapatkan referensi tabel yang diinginkan (Table article)
 		const articlesRef = ref(db, "Article");
 
-		// Mendapatkan data article untuk ditampilkan di section your latest article
+		// Mendapatkan data artikel untuk ditampilkan di section your latest article
 		onValue(articlesRef, (snapshot) => {
 			const data = snapshot.val();
 
@@ -278,31 +251,29 @@
 			// Konversi data objek menjadi array untuk mempermudah manipulasi
 			const articlesArray = Object.entries(data).map(([uid, articleData]) => ({ uid, ...articleData }));
 
-			// Jika jumlah artikel lebih dari 3, pilih 3 secara acak
-			let selectedArticles;
-			if (articlesArray.length > 3) {
-				selectedArticles = getRandomArticles(articlesArray, 3);
-			} else {
-				selectedArticles = articlesArray;
-			}
+			// Urutkan artikel berdasarkan CreatedAt dari yang terbaru ke yang terlama
+			articlesArray.sort((a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt));
+
+			// Pilih 8 artikel terbaru
+			const latestArticles = articlesArray.slice(0, 8);
 
 			// Iterasi melalui setiap entri yang dipilih
-			selectedArticles.forEach(({ uid, ArticleThumbnail, ArticleTitle, ArticleCategory, CreatedAt }) => {
+			latestArticles.forEach(({ uid, ArticleThumbnail, ArticleTitle, ArticleCategory, CreatedAt }) => {
 				const articleElement = document.createElement("div");
 				articleElement.className = "flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105";
 
 				// Template untuk elemen HTML
 				articleElement.innerHTML = `
-            <a th:href="@{/pages/article?uid=${uid}}">
+            <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
                 <img class="object-cover w-full h-56" src="${ArticleThumbnail}" alt="">
             </a>
             <div class="py-4">
-                <a href="@{/pages/article?uid=${uid}}">
+                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
                     <h2 class="text-xl font-bold text-white mb-2">${ArticleTitle}</h2>
                 </a>
                 <span style="font-family: 'Oswald', sans-serif;" class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${ArticleCategory}</span>
                 <p class="text-gray-300 mt-2">${new Date(CreatedAt).toLocaleString()}</p>
-                <a href="@{/pages/article?uid=${uid}}">
+                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
                     <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
                 </a>
             </div>
@@ -314,12 +285,6 @@
 		}, (errorObject) => {
 			console.log("The read failed: " + errorObject.code);
 		});
-
-		// Fungsi untuk memilih N artikel secara acak dari array
-		function getRandomArticles(array, num) {
-			const shuffled = array.sort(() => 0.5 - Math.random());
-			return shuffled.slice(0, num);
-		}
 
 
 	</script>

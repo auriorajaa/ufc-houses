@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <title>ADMIN - UFC HOUSES</title>
+    <title>ADMIN HOME - UFC HOUSES</title>
     <style>
         ion-icon {
             color: #d7d7d7;
@@ -27,66 +27,52 @@
         <!-- NAVBAR SECTION STARTED -->
         <nav class="bg-black text-white fixed top-0 left-0 right-0 z-10" style="font-family: 'Oswald', sans-serif;">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="/src/main/resources/templates/index.html"
+                    class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="/src/main/resources/static/img/logo.png" class="h-8" alt="Logo" />
                     <span class="self-center text-3xl font-bold whitespace-nowrap">UFC HOUSES</span>
                 </a>
-                <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    <button type="button"
-                        class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-white"
-                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-                        data-dropdown-placement="bottom">
-                        <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full object-cover"
-                            src="https://www.amust.com.au/wp-content/uploads/2020/10/P1_khabib2.jpg" alt="user photo">
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 shadow"
-                        id="user-dropdown">
-                        <div class="px-4 py-3">
-                            <span class="block text-md font-bold text-black">Khabib Nurmagomedov</span>
-                            <span class="block text-sm  text-gray-600">khabib@ufc.com</span>
-                        </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-black hover:underline">My Profile</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:underline">Sign
-                                    out</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <button data-collapse-toggle="navbar-user" type="button"
-                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                        aria-controls="navbar-user" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="text-xl font-bold items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-                    id="navbar-user">
+                <button data-collapse-toggle="navbar-default" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto text-xl font-bold uppercase text-white"
+                    id="navbar-default">
                     <ul
-                        class="uppercase font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                        class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                         <li>
                             <a href="#" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0"
-                                aria-current="page">Admin Home</a>
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="/src/main/resources/templates/admin/pages/admin-search-article/index.html"
+                                class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">All
+                                Article</a>
                         </li>
                         <li>
                             <a href="/src/main/resources/templates/admin/pages/admin-create-article/admin-create-article.html"
                                 class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">Create
                                 Article</a>
                         </li>
+                        <li>
+                            <a href="/src/main/resources/templates/admin/index.html" id="logout"
+                                class="block py-2 px-3 text-red-500 rounded hover:underline md:hover:bg-transparent md:border-0 md:p-0">Logout</a>
+                        </li>
+                        <!-- <li>
+						<a href="#"
+							class="block py-2 px-3 text-gray-400 rounded hover:text-white md:hover:bg-transparent md:border-0 md:p-0">About</a>
+					</li> -->
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- NAVBAR SECTION ENDED -->
-
         <br>
         <br>
 
@@ -330,7 +316,11 @@
 
             </div>
 
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
+            <br>
+            <br>
+            <br>
+
+            <div class="max-w-screen-xl items-center justify-center mx-auto">
                 <a href="/src/main/resources/templates/admin/pages/admin-search-article/index.html">
                     <h1 class="text-white hover:text-gray-400 underline text-center font-bold text-2xl cursor-pointer">
                         SEE
@@ -343,6 +333,20 @@
     </div>
 
     <br>
+    <br>
+
+    <!-- FOOTER SECTION STARTED -->
+    <footer class="bg-black">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="#" class="hover:underline">Ufc
+                        Houses</a>. All Rights Reserved.
+                </span>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION ENDED -->
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -467,39 +471,53 @@
             // Menghapus konten yang ada (untuk mencegah duplikasi)
             upcomingFightContainer.innerHTML = "";
 
-            // Iterasi melalui setiap entri dalam data
-            for (const uid in data) {
-                const fight = data[uid];
+            if (data) {
+                // Konversi data objek menjadi array untuk mempermudah manipulasi
+                const fightsArray = Object.entries(data).map(([uid, fightData]) => ({ uid, ...fightData }));
 
-                // Membuat elemen HTML untuk setiap item
-                const fightElement = document.createElement('div');
-                fightElement.className = "flex flex-col overflow-hidden shadow-lg my-4";
+                // Urutkan array berdasarkan EventDate dari yang terbaru ke yang terlama
+                fightsArray.sort((a, b) => new Date(a.EventDate) - new Date(b.EventDate));
 
-                // Template untuk elemen HTML
-                fightElement.innerHTML = `
-            <img class="object-cover w-full h-64" id="thumbnail-link" src="${fight.Thumbnail}" alt="Fight Thumbnail">
-            <div class="py-4" style="font-family: 'Oswald', sans-serif;">
-                <h6 style="display: none;" class="text-white">ID: ${uid}</h6>
-                <div class="flex flex-row gap-2">
-                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-1">${fight.Fighter1.toLowerCase()}</h2>
-                    <h2 class="text-3xl font-bold text-white">Vs</h2>
-                    <h2 class="text-3xl font-bold text-white capitalize" id="fighter-2">${fight.Fighter2.toLowerCase()} <ion-icon name="create-outline" class="cursor-pointer" data-uid="${uid}" onclick="openEditModal('${uid}')"></ion-icon></h2>
+                // Iterasi melalui setiap entri dalam data yang sudah diurutkan
+                fightsArray.forEach(({ uid, Thumbnail, Fighter1, Fighter2, FightCategory, LiveLink, EventDate }) => {
+                    // Membuat elemen HTML untuk setiap item
+                    const fightElement = document.createElement('div');
+                    fightElement.className = "flex flex-col overflow-hidden shadow-lg my-4";
+
+                    // Template untuk elemen HTML
+                    fightElement.innerHTML = `
+                <img class="object-cover w-full h-64" id="thumbnail-link" src="${Thumbnail}" alt="Fight Thumbnail">
+                <div class="py-4" style="font-family: 'Oswald', sans-serif;">
+                    <h6 style="display: none;" class="text-white">ID: ${uid}</h6>
+                    <div class="flex flex-row gap-2">
+                        <h2 class="text-3xl font-bold text-white capitalize" id="fighter-1">${Fighter1.toLowerCase()}</h2>
+                        <h2 class="text-3xl font-bold text-white">Vs</h2>
+                        <h2 class="text-3xl font-bold text-white capitalize" id="fighter-2">${Fighter2.toLowerCase()} 
+                            <ion-icon name="create-outline" class="cursor-pointer" data-uid="${uid}" onclick="openEditModal('${uid}')"></ion-icon>
+                        </h2>
+                    </div>
+                    <div class="flex items-center text-gray-100 mt-2">
+                        <p id="fight-category">${FightCategory}</p>
+                        <span class="mx-2">|</span>
+                        <a href="${LiveLink}" class="hover:text-yellow-400" id="link-live-streaming">Link Live Streaming</a>
+                    </div>
+                    <p class="text-gray-300 mt-2" id="date-event">${new Date(EventDate).toLocaleString()}</p>
                 </div>
-                <div class="flex items-center text-gray-100 mt-2">
-                    <p id="fight-category">${fight.FightCategory}</p>
-                    <span class="mx-2">|</span>
-                    <a href="${fight.LiveLink}" class="hover:text-yellow-400" id="link-live-streaming">Link Live Streaming</a>
-                </div>
-                <p class="text-gray-300 mt-2" id="date-event">${new Date(fight.EventDate).toLocaleString()}</p>
-            </div>
-        `;
+            `;
 
-                // Menambahkan elemen HTML ke dalam upcomingFightContainer
-                upcomingFightContainer.appendChild(fightElement);
+                    // Menambahkan elemen HTML ke dalam upcomingFightContainer
+                    upcomingFightContainer.appendChild(fightElement);
+                });
+            } else {
+                // Jika tidak ada data, tampilkan pesan
+                const noDataElement = document.createElement("div");
+                noDataElement.innerHTML = "<p>No fights available.</p>";
+                upcomingFightContainer.appendChild(noDataElement);
             }
         }, (errorObject) => {
             console.error("The read failed: " + errorObject.code);
         });
+
 
         window.openEditModal = (uid) => {
             const fightRef = ref(db, `UpcomingFight/${uid}`);
@@ -604,16 +622,11 @@
                 // Konversi data objek menjadi array untuk mempermudah manipulasi
                 const articlesArray = Object.entries(data).map(([uid, articleData]) => ({ uid, ...articleData }));
 
-                // Jika data tidak kosong, pilih 3 artikel
-                let selectedArticles;
+                // Urutkan artikel berdasarkan CreatedAt dari yang terbaru ke yang terlama
+                articlesArray.sort((a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt));
 
-                // Pilih tiga artikel secara acak
-                if (articlesArray.length > 6) {
-                    selectedArticles = getRandomArticles(articlesArray, 6)
-                } else {
-                    // Jika jumlah artikel kurang dari atau sama dengan 3, ambil semua artikel
-                    selectedArticles = articlesArray;
-                }
+                // Pilih 8 artikel terbaru
+                const selectedArticles = articlesArray.slice(0, 8);
 
                 // Iterasi melalui setiap entri yang dipilih
                 selectedArticles.forEach(({ uid, ArticleThumbnail, ArticleTitle, ArticleCategory, CreatedAt }) => {
@@ -650,11 +663,14 @@
             console.log("The read failed: " + errorObject.code);
         });
 
-        // Fungsi untuk memilih N artikel secara acak dari array
-        function getRandomArticles(array, num) {
-            const shuffled = array.sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, num);
+        // Fungsi untuk logout
+        function logout() {
+            // Hapus data sesi atau token di sini
+            alert('You have been logged out.');
+            window.location.href('/src/main/resources/templates/admin/index.html'); // Arahkan ke halaman login
         }
+
+        document.querySelector("#logout").addEventListener("click", logout);
     </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

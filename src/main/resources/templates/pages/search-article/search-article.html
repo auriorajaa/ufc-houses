@@ -28,6 +28,11 @@
                 /* Adjust zoom level as needed */
             }
         }
+
+        #list-search:hover {
+            color: #000000;
+            text-decoration: underline #000000;
+        }
     </style>
 </head>
 
@@ -54,7 +59,7 @@
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                     <li>
                         <a href="/src/main/resources/templates/index.html"
-                            class="block py-2 px-3 text-gray-400 rounded md:bg-transparent md:p-0"
+                            class="block py-2 px-3 text-gray-400 rounded hover:text-white md:bg-transparent md:border-0 md:p-0"
                             aria-current="page">Home</a>
                     </li>
                     <li>
@@ -94,8 +99,11 @@
                     <input type="search" id="default-search"
                         class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-gray-500 focus:border-gray-500"
                         placeholder="Search..." required />
-                    <button type="submit"
-                        class="text-white absolute end-2.5 bottom-2.5 bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium text-sm px-4 py-2">Search</button>
+                    <button id="close-btn" class="absolute top-4 right-0 w-10 text-transparent">X</button>
+                </div>
+                <div id="result-box"
+                    class="relative block w-full text-sm text-gray-900 border-t-0 border-x border-b bg-gray-50 border-gray-300 focus:ring-green-500 focus:border-green-500 text-left">
+
                 </div>
             </form>
 
@@ -118,7 +126,7 @@
                     <li data-filter="heavyweight"
                         class="list focus:outline-none bg-gray-200 hover:bg-white hover:text-black hover:border-black focus:ring-4 cursor-pointer focus:ring-gray-900 font-medium text-sm px-2 py-2">
                         Heavyweight</li>
-                    <li data-filter="Other"
+                    <li data-filter="other"
                         class="list focus:outline-none bg-gray-200 hover:bg-white hover:text-black hover:border-black focus:ring-4 cursor-pointer focus:ring-gray-900 font-medium text-sm px-2 py-2">
                         Other</li>
                 </ul>
@@ -135,91 +143,23 @@
 
         </div>
 
-        <!-- PAGINATION SECTION -->
-        <nav class="flex items-center flex-row justify-between pt-4" aria-label="Table navigation">
-            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-                <li>
-                    <a href="#"
-                        class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-white border border-gray-300 hover:bg-white hover:text-black">Previous</a>
-                </li>
-                <li>
-                    <a href="#" aria-current="page"
-                        class="flex items-center justify-center px-3 h-8 leading-tight text-black border bg-white border-white hover:bg-white hover:text-black">1</a>
-                </li>
-                <li>
-                    <a href="#" aria-current=""
-                        class="flex items-center justify-center px-3 h-8 leading-tight text-white border border-gray-300 hover:bg-white hover:text-black">2</a>
-                </li>
-                <li>
-                    <a href="#" aria-current=""
-                        class="flex items-center justify-center px-3 h-8 leading-tight text-white border border-gray-300 hover:bg-white hover:text-black">3</a>
-                </li>
-                <li>
-                    <a href="#" aria-current=""
-                        class="flex items-center justify-center px-3 h-8 leading-tight text-white border border-gray-300 hover:bg-white hover:text-black">4</a>
-                </li>
-                <li>
-                    <a href="#" aria-current=""
-                        class="flex items-center justify-center px-3 h-8 leading-tight text-white border border-gray-300 hover:bg-white hover:text-black">5</a>
-                </li>
-                <li>
-                    <a href="#" aria-current=""
-                        class="flex items-center justify-center px-3 h-8 leading-tight text-white border border-gray-300 hover:bg-white hover:text-black">Next</a>
-                </li>
-            </ul>
-        </nav>
     </div>
     <!-- ALL ARTICLE SECTION ENDED -->
 
+    <br>
+    <br>
+
     <!-- FOOTER SECTION STARTED -->
-
-    <footer class="bg-black mt-7">
+    <footer class="bg-black">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            <div class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
-                    <a href="index.html" class="flex items-center">
-                        <img src="/src/main/resources/static/img/logo.png" class="h-8 me-3" alt="Logo" />
-                        <span class="self-center text-3xl font-bold whitespace-nowrap text-white">UFC
-                            HOUSES</span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                    <div>
-                        <h2 class="mb-6 text-lg font-semibold text-white uppercase">Resources</h2>
-                        <ul class="text-gray-300 font-medium">
-                            <li class="mb-4">
-                                <a href="index.html" class="hover:underline">UFC HOUSES</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-lg font-semibold text-white uppercase">Follow us</h2>
-                        <ul class="text-gray-300 font-medium uppercase">
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline ">Instagram</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline">TikTok</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-lg font-semibold text-white uppercase">Legal</h2>
-                        <ul class="text-gray-300 font-medium uppercase">
-                            <li class="mb-4">
-                                <a href="#" class="hover:underline">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="#" class="hover:underline">Ufc
+                        Houses</a>. All Rights Reserved.
+                </span>
             </div>
-
         </div>
     </footer>
-
     <!-- FOOTER SECTION ENDED -->
 
     <script type="module">
@@ -262,33 +202,40 @@
             // Menghapus konten yang ada (untuk mencegah duplikasi)
             displayArticleContainer.innerHTML = "";
 
-            // Iterasi melalui setiap entri dalam data
-            for (const uid in data) {
-                const articleData = data[uid];
+            // Konversi data objek menjadi array untuk mempermudah manipulasi
+            const articlesArray = Object.entries(data).map(([uid, articleData]) => ({
+                uid,
+                ...articleData
+            }));
 
+            // Urutkan artikel berdasarkan CreatedAt dari yang terbaru ke yang terlama
+            articlesArray.sort((a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt));
+
+            // Iterasi melalui setiap entri yang dipilih
+            articlesArray.forEach(({ uid, ArticleThumbnail, ArticleTitle, ArticleCategory, CreatedAt }) => {
                 const articleElement = document.createElement("div");
-                articleElement.className = `itemBox ${articleData.ArticleCategory.toLowerCase()} flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105`;
+                articleElement.className = `itemBox ${ArticleCategory.toLowerCase()} flex flex-col overflow-hidden shadow-lg my-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-105`;
 
                 // Template untuk elemen HTML
                 articleElement.innerHTML = `
-    <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
-        <img class="object-cover w-full h-56" src="${articleData.ArticleThumbnail}" alt="">
-    </a>
-    <div class="py-4">
-        <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
-            <h2 class="text-xl font-bold text-white mb-2">${articleData.ArticleTitle}</h2>
-        </a>
-        <span style="font-family: 'Oswald', sans-serif;" class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${articleData.ArticleCategory}</span>
-        <p class="text-gray-300 mt-2">${new Date(articleData.CreatedAt).toLocaleString()}</p>
-        <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
-            <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
-        </a>
-    </div>
-`;
+            <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                <img class="object-cover w-full h-56" src="${ArticleThumbnail}" alt="">
+            </a>
+            <div class="py-4">
+                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                    <h2 class="text-xl font-bold text-white mb-2">${ArticleTitle}</h2>
+                </a>
+                <span style="font-family: 'Oswald', sans-serif;" class="bg-white text-black text-sm font-medium me-2 px-2.5 py-0.5">${ArticleCategory}</span>
+                <p class="text-gray-300 mt-2">${new Date(CreatedAt).toLocaleString()}</p>
+                <a href="/src/main/resources/templates/pages/article/index.html?uid=${uid}">
+                    <p class="text-gray-300 mt-2 hover:underline">Read More...</p>
+                </a>
+            </div>
+        `;
 
                 // Menambahkan elemen HTML ke dalam displayArticleContainer
                 displayArticleContainer.appendChild(articleElement);
-            }
+            });
         }, (errorObject) => {
             console.log("The read failed: " + errorObject.code);
         });
@@ -314,7 +261,66 @@
                 // Tambahkan kelas 'active' ke elemen yang diklik dan hapus kelas 'active' dari saudara-saudaranya
                 $(this).addClass('active').siblings().removeClass('active');
             })
-        })
+        });
+
+        const resultBox = document.querySelector("#result-box");
+        const inputBox = document.querySelector("#default-search");
+        const closeButton = document.querySelector("#close-btn");
+
+        let availableKeywords = [];
+
+        // Mengambil data dari Firebase Realtime Database
+        const articleRef = ref(db, 'Article');
+        onValue(articleRef, (snapshot) => {
+            const data = snapshot.val();
+            availableKeywords = Object.entries(data).map(([uid, item]) => ({
+                uid: uid,
+                title: item.ArticleTitle
+            }));
+        });
+
+        inputBox.onkeyup = function () {
+            let result = [];
+            let input = inputBox.value;
+
+            if (input.length) {
+                result = availableKeywords.filter(({ title }) => {
+                    return title.toLowerCase().includes(input.toLowerCase());
+                });
+                console.log(result);
+            }
+
+            display(result);
+        }
+
+        function display(result) {
+            if (result.length) {
+                const content = result.map(({ uid, title }) => {
+                    return `
+                    <a href='/src/main/resources/templates/pages/article/index.html?uid=${uid}' class='text-gray-900'>                    
+                        <li id='list-search' class='py-2'>${title}</li>
+                    </a>
+                `;
+                })
+
+                resultBox.innerHTML = "<ul class='space-y-3 p-2'>" + content.join('') + "</ul>";
+                resultBox.style.display = 'block';
+            } else {
+                resultBox.style.display = 'none';
+            }
+        }
+
+        closeButton.addEventListener("click", () => {
+            resultBox.style.display = 'none';
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInside = resultBox.contains(event.target) || inputBox.contains(event.target);
+
+            if (!isClickInside) {
+                resultBox.style.display = 'none';
+            }
+        });
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

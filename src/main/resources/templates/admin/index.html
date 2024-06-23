@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <title>ADMIN - UFC HOUSES</title>
+    <title>ADMIN LOGIN - UFC HOUSES</title>
 </head>
 
 <body class="bg-black">
@@ -24,9 +24,7 @@
         <div class="flex flex-col items-center justify-center px-6 py-8 md:h-screen mx-auto lg:py-0">
             <a href="#" class="flex items-center mb-6 text-4xl font-extrabold text-white"
                 style="font-family: 'Oswald', sans-serif;">
-                <img class="w-16 h-16 mr-2"
-                    src="https://previews.dropbox.com/p/thumb/ACTOHoeAZ7cSSjfqnbfr5PeGzQBqlc6PdOLSAVI9nDWva-qwhyRh9g0FAsJh4FpBKmCqbKlll5xgn8LcXdTfyvMSlrXjz0x98tzaGRLPxl-xs_OPFmpYGDgicvCBG7w8b2NinHVj9rM14op99vtPI2LtCR9VcZO2dF1zgsTtncpWaVdopM1SUb9m6mLWMb-xJ7GxykmaX99-TkkdnEOHWGsRP9nTao2e756Efz7Fjvns1F6MHCVSjT_Jq98o7WqMb_OnGsYlr-uTg4fRyrgDOCf9nTZN9GufIDGQkAoBgaYBBOphsy72FBqhH2ylHk9Hm5BbHaWhQ4V5tS2cIxmg6AnQ/p.png"
-                    alt="logo">
+                <img class="w-16 h-16 mr-2" src="/src/main/resources/templates/assets/images/sport.png" alt="logo">
                 UFC HOUSES ADMIN
             </a>
             <div class="w-full bg-white shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
@@ -49,6 +47,11 @@
                                 class="bg-gray-50 border border-gray-500 text-black sm:text-sm focus:ring-gray-900 focus:border-gray-900 block w-full p-2.5"
                                 required="">
                         </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" id="sendPasswordResetEmail"
+                                class="font-light text-gray-600 hover:underline">Forgot
+                                password?</a>
+                        </div>
                         <button type="submit" id="login-admin-btn"
                             class="w-full text-white bg-black hover:bg-white hover:text-black border border-black font-medium text-sm px-5 py-2.5 text-center">Sign
                             in</button>
@@ -69,7 +72,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import {
-            getAuth, signInWithEmailAndPassword, onAuthStateChanged
+            getAuth, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
         // Your web app's Firebase configuration
@@ -113,6 +116,24 @@
         }
 
         adminLoginBtn.addEventListener("click", userSignIn);
+
+        const emailInput = document.getElementById("admin-email");
+        const forgotPasswordButton = document.getElementById("sendPasswordResetEmail");
+
+        function forgotPassword() {
+            sendPasswordResetEmail(auth, emailInput.value)
+                .then(() => {
+                    alert(`Password reset email sent successfully! to ${emailInput.value}`);
+                })
+                .catch((error) => {
+                    alert("Failed to send password reset email. Please input the correct email address.");
+                });
+        }
+
+        forgotPasswordButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            forgotPassword();
+        });
 
     </script>
 
